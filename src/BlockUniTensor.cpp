@@ -47,7 +47,7 @@ namespace cytnx {
                       "[ERROR][BlockUniTensor] All bonds must have dimension >=1%s", "\n");
       // check symmetry and type:
       cytnx_error_msg(bonds[i].Nsym() != N_symmetry,
-                      "[ERROR][BlockUniTensor] inconsistant # of symmetry at bond: %d. # of "
+                      "[ERROR][BlockUniTensor] inconsistent # of symmetry at bond: %d. # of "
                       "symmetry should be %d\n",
                       i, N_symmetry);
       for (cytnx_uint32 n = 0; n < N_symmetry; n++) {
@@ -2066,7 +2066,7 @@ namespace cytnx {
     } else if (rhs->uten_type() == UTenType.Block) {
       _bk_from_bk(this, (BlockUniTensor *)(rhs.get()), force);
     } else {
-      cytnx_error_msg(true, "[ERROR] unsupport conversion of UniTensor from %s => BlockUniTensor\n",
+      cytnx_error_msg(true, "[ERROR] unsupported conversion of UniTensor from %s => BlockUniTensor\n",
                       UTenType.getname(rhs->uten_type()).c_str());
     }
   }

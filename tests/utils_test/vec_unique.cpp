@@ -1,8 +1,8 @@
 #include "vec_test.h"
 
 /*
- * Complex types and bool types are not avaiable for vec_unique
- * Because complex types can't be compaired.
+ * Complex types and bool types are not available for vec_unique
+ * Because complex types can't be compared.
  */
 
 TEST_F(VecTest, vec_unique) {

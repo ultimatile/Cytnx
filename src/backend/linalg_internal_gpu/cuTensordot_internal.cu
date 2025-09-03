@@ -37,7 +37,7 @@ namespace cytnx {
       // hostType beta = (hostType){0.f, 0.f};
 
       // mode stores the label of each dimesion, which the dimension of same label would be
-      // contracted label are encoded from 0 (new_label) contracted dimenstion, Tl's dimension, Tr's
+      // contracted label are encoded from 0 (new_label) contracted dimension, Tl's dimension, Tr's
       // dimension
 
       /*************************

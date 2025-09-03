@@ -62,7 +62,7 @@ def dmrg_XXmodel_dense(Nsites, chi, numsweeps, maxit):
     A = [None for i in range(Nsites)]
     A[0] = cytnx.UniTensor(cytnx.random.normal([1, d, min(chi, d)], 0., 1.), rowrank = 2)
     A[0].relabels_(["0","1","2"])
-    lbls.append(["0","1","2"]) # store the labels for later convinience.
+    lbls.append(["0","1","2"]) # store the labels for later convenience.
 
     for k in range(1,Nsites):
         dim1 = A[k-1].shape()[2]; dim2 = d
@@ -71,7 +71,7 @@ def dmrg_XXmodel_dense(Nsites, chi, numsweeps, maxit):
 
         lbl = [str(2*k),str(2*k+1),str(2*k+2)]
         A[k].relabels_(lbl)
-        lbls.append(lbl) # store the labels for later convinience.
+        lbls.append(lbl) # store the labels for later convenience.
 
     LR = [None for i in range(Nsites+1)]
     LR[0]  = L0
@@ -84,7 +84,7 @@ def dmrg_XXmodel_dense(Nsites, chi, numsweeps, maxit):
         s, A[p] ,vt = cytnx.linalg.Gesvd(A[p])
         A[p+1] = cytnx.Contract(cytnx.Contract(s,vt),A[p+1])
 
-        ## Calculate enviroments:
+        ## Calculate environments:
         anet = cytnx.Network()
         anet.FromString(["L: -2,-1,-3",\
                         "A: -1,-4,1",\

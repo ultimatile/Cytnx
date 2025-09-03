@@ -89,11 +89,11 @@ namespace cytnx {
             ((cytnx_double *)S._impl->storage()._impl->data())[truc_dim];
           terr = newterr;
         } else if (return_err) {
-          cytnx_uint64 discared_dim = S.shape()[0] - truc_dim;
-          Tensor newterr = Tensor({discared_dim}, S.dtype(), S.device());
+          cytnx_uint64 discarded_dim = S.shape()[0] - truc_dim;
+          Tensor newterr = Tensor({discarded_dim}, S.dtype(), S.device());
           HANDLE_CUDA_ERROR(cudaMemcpy((cytnx_double *)newterr._impl->storage()._impl->data(),
                                        (cytnx_double *)S._impl->storage()._impl->data() + truc_dim,
-                                       discared_dim * sizeof(cytnx_double),
+                                       discarded_dim * sizeof(cytnx_double),
                                        cudaMemcpyDeviceToDevice));
           terr = newterr;
         }
@@ -161,11 +161,11 @@ namespace cytnx {
             ((cytnx_double *)S._impl->storage()._impl->data())[truc_dim];
           terr = newterr;
         } else if (return_err) {
-          cytnx_uint64 discared_dim = S.shape()[0] - truc_dim;
-          Tensor newterr = Tensor({discared_dim}, S.dtype(), S.device());
+          cytnx_uint64 discarded_dim = S.shape()[0] - truc_dim;
+          Tensor newterr = Tensor({discarded_dim}, S.dtype(), S.device());
           HANDLE_CUDA_ERROR(cudaMemcpy((cytnx_double *)newterr._impl->storage()._impl->data(),
                                        (cytnx_double *)S._impl->storage()._impl->data() + truc_dim,
-                                       discared_dim * sizeof(cytnx_double),
+                                       discarded_dim * sizeof(cytnx_double),
                                        cudaMemcpyDeviceToDevice));
           terr = newterr;
         }
@@ -233,11 +233,11 @@ namespace cytnx {
             ((cytnx_double *)S._impl->storage()._impl->data())[truc_dim];
           terr = newterr;
         } else if (return_err) {
-          cytnx_uint64 discared_dim = S.shape()[0] - truc_dim;
-          Tensor newterr = Tensor({discared_dim}, S.dtype(), S.device());
+          cytnx_uint64 discarded_dim = S.shape()[0] - truc_dim;
+          Tensor newterr = Tensor({discarded_dim}, S.dtype(), S.device());
           HANDLE_CUDA_ERROR(cudaMemcpy((cytnx_double *)newterr._impl->storage()._impl->data(),
                                        (cytnx_double *)S._impl->storage()._impl->data() + truc_dim,
-                                       discared_dim * sizeof(cytnx_double),
+                                       discarded_dim * sizeof(cytnx_double),
                                        cudaMemcpyDeviceToDevice));
           terr = newterr;
         }
@@ -304,11 +304,11 @@ namespace cytnx {
             ((cytnx_double *)S._impl->storage()._impl->data())[truc_dim];
           terr = newterr;
         } else if (return_err) {
-          cytnx_uint64 discared_dim = S.shape()[0] - truc_dim;
-          Tensor newterr = Tensor({discared_dim}, S.dtype(), S.device());
+          cytnx_uint64 discarded_dim = S.shape()[0] - truc_dim;
+          Tensor newterr = Tensor({discarded_dim}, S.dtype(), S.device());
           HANDLE_CUDA_ERROR(cudaMemcpy((cytnx_double *)newterr._impl->storage()._impl->data(),
                                        (cytnx_double *)S._impl->storage()._impl->data() + truc_dim,
-                                       discared_dim * sizeof(cytnx_double),
+                                       discarded_dim * sizeof(cytnx_double),
                                        cudaMemcpyDeviceToDevice));
           terr = newterr;
         }

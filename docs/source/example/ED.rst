@@ -14,7 +14,7 @@ The model undergoes a phase transition  at :math:`H_x^c/J = 1` with avoid level 
 
 Here, we are interesting to observe this avoid level crossing where the gap closes with increasing system size. For this, we want to get the low-level energy spectrums.
 
-Generally, the native way to calculate the energy specturm of this Hamiltonian is through the product of local pauli-matrices. However, the size of this many-body Hamiltonian growth exponentially with size of chain :math:`L` as :math:`2^{L}`. It is not pratical to store this large Hamiltonain.
+Generally, the native way to calculate the energy spectrum of this Hamiltonian is through the product of local pauli-matrices. However, the size of this many-body Hamiltonian growth exponentially with size of chain :math:`L` as :math:`2^{L}`. It is not practical to store this large Hamiltonain.
 
 Notice that this many-body Hamiltonain is very sparse, with lots of elements equal to zero. Thus it is very useful to use LinOp to represent this Hamiltonain, and call **Lanczos_ER** to get the low-level energies.
 
@@ -48,13 +48,13 @@ For example:
 The first example, :math:`J\sigma_0^{z}\sigma_1^{z}` map from basis with ID=1 to ID=1 with coefficient :math:`-J`, which is a diagonal elements in the many body Hamiltonian.
 The second example which :math:`H_x\sigma_0^{x}` operate on state with ID=1 resulting as a state with ID=0 and corresponding coefficient :math:`H_x`, which is a off-diagonal elements in the many-body Hamiltonian.
 
-With aformentioned rule, we are now ready to implement the TFIM Hamiltonian using **LinOp** class.
+With aforementioned rule, we are now ready to implement the TFIM Hamiltonian using **LinOp** class.
 
 
 Implementation
 *****************
 
-1. Let's inherit the **LinOp** class, and implement the aformentioned mapping in the overload of **matvec**:
+1. Let's inherit the **LinOp** class, and implement the aforementioned mapping in the overload of **matvec**:
 
 
 * In python:
@@ -106,7 +106,7 @@ Implementation
             cytnx_uint32 L;
 
         Hising(cytnx_uint32 L, cytnx_double J, cytnx_double Hx):
-            cy::LinOp("mv",pow(2,L),Type.Double,Device.cpu) //rememeber to invoke base class constructor
+            cy::LinOp("mv",pow(2,L),Type.Double,Device.cpu) //remember to invoke base class constructor
         {
             //custom members
             this->J  = J;
@@ -218,7 +218,7 @@ Output>>
 Simulation Results
 ************************************
 
-    Here, we show the result using the aformentioned implementation. We define a common parameter :math:`s` such that :math:`J = -s` and :math:`Hx=(1-s)`, and we plot the second gap :math:`\Delta E_{20}` that shows the avoid level crossing:
+    Here, we show the result using the aforementioned implementation. We define a common parameter :math:`s` such that :math:`J = -s` and :math:`Hx=(1-s)`, and we plot the second gap :math:`\Delta E_{20}` that shows the avoid level crossing:
 
 .. image:: image/ED_Egap.png
     :width: 600

@@ -159,7 +159,7 @@ namespace cytnx {
     void _print();
 
     /// @cond
-    // this expose to interitance:
+    // this expose to inheritance:
     // need user to check the output to be Tensor
     /// @endcond
     virtual Tensor matvec(const Tensor &Tin);

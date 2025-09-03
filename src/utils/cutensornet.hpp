@@ -77,7 +77,7 @@ namespace cytnx {
     // Create a cutensornetSliceGroup_t object from a range of slice IDs
     cutensornetSliceGroup_t sliceGroup{};
 
-    // input datas
+    // input data
     int32_t numInputs;
     void *R_d;
     int32_t nmodeR;

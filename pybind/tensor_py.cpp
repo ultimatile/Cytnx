@@ -170,7 +170,7 @@ void tensor_binding(py::module &m) {
       "to_different_device",
       [](cytnx::Tensor &self, const cytnx_int64 &device) {
         cytnx_error_msg(self.device() == device,
-                        "[ERROR][pybind][to_diffferent_device] same device for to() should be "
+                        "[ERROR][pybind][to_different_device] same device for to() should be "
                         "handle in python side.%s",
                         "\n");
         return self.to(device);
@@ -211,7 +211,7 @@ void tensor_binding(py::module &m) {
       "astype_different_dtype",
       [](cytnx::Tensor &self, const cytnx_uint64 &dtype) {
         cytnx_error_msg(self.dtype() == dtype,
-                        "[ERROR][pybind][astype_diffferent_device] same dtype for astype() should "
+                        "[ERROR][pybind][astype_different_device] same dtype for astype() should "
                         "be handle in python side.%s",
                         "\n");
         return self.astype(dtype);

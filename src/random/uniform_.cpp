@@ -23,7 +23,7 @@ namespace cytnx {
      * @param Tin A tensor of which elements are in the range of (0.0, 1.0]. For the tensor holding
      * a complex type, both of the real part and the image part of each element are in (0.0, 1.0]
      * @param low the lower bound of the new range
-     * @param hight the higher bound of the new range
+     * @param height the higher bound of the new range
      */
     void TransformToRange(Tensor &Tin, double low, double high) {
       if (high - low != 1.0) {
@@ -86,7 +86,7 @@ namespace cytnx {
   #ifdef UNI_GPU
         random_internal::rii.cuUniform[Tin.dtype()](Tin._impl->storage()._impl, low, high, seed);
         // TODO: Use cublas's cublas<t>axpy() in the underlying function instead. Because
-        // modifiying the underlying function will make conflicts with the #528 pull request,
+        // modifying the underlying function will make conflicts with the #528 pull request,
         // leave this temporary solution here now.
         TransformToRange(Tin, low, high);
   #else

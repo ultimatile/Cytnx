@@ -100,7 +100,7 @@ namespace cytnx {
           _is_braket_form(false),
           _rowrank(0),
           _is_diag(false),
-          uten_type_id(UTenType.Void){};
+          uten_type_id(UTenType.Void) {};
 
     // copy&assignment constr., use intrusive_ptr's !!
     UniTensor_base(const UniTensor_base &rhs);
@@ -174,7 +174,7 @@ namespace cytnx {
           break;
         }
       }
-      cytnx_error_msg(is_dup, "[ERROR] alreay has a label that is the same as the input label%s",
+      cytnx_error_msg(is_dup, "[ERROR] already has a label that is the same as the input label%s",
                       "\n");
       this->_labels[idx] = new_label;
     }
@@ -191,7 +191,7 @@ namespace cytnx {
           break;
         }
       }
-      cytnx_error_msg(is_dup, "[ERROR] alreay has a label that is the same as the input label%s",
+      cytnx_error_msg(is_dup, "[ERROR] already has a label that is the same as the input label%s",
                       "\n");
       this->_labels[inx] = new_label;
     }
@@ -435,7 +435,7 @@ namespace cytnx {
     virtual void _save_dispatch(std::fstream &f) const;
     virtual void _load_dispatch(std::fstream &f);
 
-    virtual ~UniTensor_base(){};
+    virtual ~UniTensor_base() {};
   };
   /// @endcond
 
@@ -656,7 +656,7 @@ namespace cytnx {
     }
 
     void put_block(const Tensor &in, const cytnx_uint64 &idx = 0) {
-      // We don't check the dtype for DenseUniTensor, since it'll be more convinent to change
+      // We don't check the dtype for DenseUniTensor, since it'll be more convenient to change
       // DenseUniTensor's dtype
 
       // cytnx_error_msg(in.dtype() != this->dtype(),
@@ -683,7 +683,7 @@ namespace cytnx {
     }
     // share view of the block
     void put_block_(Tensor &in, const cytnx_uint64 &idx = 0) {
-      // We don't check the dtype for DenseUniTensor, since it'll be more convinent to change
+      // We don't check the dtype for DenseUniTensor, since it'll be more convenient to change
       // DenseUniTensor's dtype
 
       // cytnx_error_msg(in.dtype() != this->dtype(),
@@ -761,7 +761,7 @@ namespace cytnx {
       return this->get_block_().same_data(rhs->get_block_());
     }
 
-    ~DenseUniTensor(){};
+    ~DenseUniTensor() {};
 
     // arithmetic
     void Add_(const boost::intrusive_ptr<UniTensor_base> &rhs);
@@ -1019,20 +1019,20 @@ namespace cytnx {
     void _load_dispatch(std::fstream &f);
 
     const std::vector<cytnx_uint64> &get_qindices(const cytnx_uint64 &bidx) const {
-      cytnx_error_msg(true, "[ERROR] get_qindices can only be unsed on UniTensor with Symmetry.%s",
+      cytnx_error_msg(true, "[ERROR] get_qindices can only be used on UniTensor with Symmetry.%s",
                       "\n");
     }
     std::vector<cytnx_uint64> &get_qindices(const cytnx_uint64 &bidx) {
-      cytnx_error_msg(true, "[ERROR] get_qindices can only be unsed on UniTensor with Symmetry.%s",
+      cytnx_error_msg(true, "[ERROR] get_qindices can only be used on UniTensor with Symmetry.%s",
                       "\n");
     }
 
     const vec2d<cytnx_uint64> &get_itoi() const {
-      cytnx_error_msg(true, "[ERROR] get_itoi can only be unsed on UniTensor with Symmetry.%s",
+      cytnx_error_msg(true, "[ERROR] get_itoi can only be used on UniTensor with Symmetry.%s",
                       "\n");
     }
     vec2d<cytnx_uint64> &get_itoi() {
-      cytnx_error_msg(true, "[ERROR] get_itoi can only be unsed on UniTensor with Symmetry.%s",
+      cytnx_error_msg(true, "[ERROR] get_itoi can only be used on UniTensor with Symmetry.%s",
                       "\n");
     }
 
@@ -1052,7 +1052,7 @@ namespace cytnx {
 
     // given an index list [loc], get qnums from this->_bonds[loc] and return the combined qnums
     // calculated from Symm object! this assume 1. symmetry are the same for each bond!
-    //             2. total_qns are feeded with size len(symmetry)
+    //             2. total_qns are fed with size len(symmetry)
     void _fx_get_total_fluxs(std::vector<cytnx_uint64> &loc, const std::vector<Symmetry> &syms,
                              std::vector<cytnx_int64> &total_qns) {
       memset(&total_qns[0], 0, sizeof(cytnx_int64) * total_qns.size());
@@ -1210,7 +1210,7 @@ namespace cytnx {
       return this->_blocks[idx].clone();
     };
 
-    // this one for Block will return the indicies!!
+    // this one for Block will return the indices!!
     Tensor get_block(const std::vector<cytnx_int64> &indices, const bool &force_return) const {
       cytnx_error_msg(indices.size() != this->rank(),
                       "[ERROR][get_block][BlockUniTensor] len(indices) must be the same as the "
@@ -1233,11 +1233,11 @@ namespace cytnx {
           return NullRefTensor;
         } else {
           cytnx_error_msg(true,
-                          "[ERROR][get_block][BlockUniTensor] no avaliable block exists, "
+                          "[ERROR][get_block][BlockUniTensor] no available block exists, "
                           "force_return=false, so "
                           "error throws. \n    If you want to return an empty block without "
                           "error when block is "
-                          "not avaliable, set force_return=True.%s",
+                          "not available, set force_return=True.%s",
                           "\n");
         }
       } else {
@@ -1280,11 +1280,11 @@ namespace cytnx {
           return this->NullRefTensor;
         } else {
           cytnx_error_msg(true,
-                          "[ERROR][get_block][BlockUniTensor] no avaliable block exists, "
+                          "[ERROR][get_block][BlockUniTensor] no available block exists, "
                           "force_return=false, so "
                           "error throws. \n    If you want to return an empty block without "
                           "error when block is "
-                          "not avaliable, set force_return=True.%s",
+                          "not available, set force_return=True.%s",
                           "\n");
         }
       } else {
@@ -1314,11 +1314,11 @@ namespace cytnx {
           return this->NullRefTensor;
         } else {
           cytnx_error_msg(true,
-                          "[ERROR][get_block][BlockUniTensor] no avaliable block exists, "
+                          "[ERROR][get_block][BlockUniTensor] no available block exists, "
                           "force_return=false, so "
                           "error throws. \n    If you want to return an empty block without "
                           "error when block is "
-                          "not avaliable, set force_return=True.%s",
+                          "not available, set force_return=True.%s",
                           "\n");
         }
       } else {
@@ -1504,9 +1504,9 @@ namespace cytnx {
       if (b < 0) {
         if (check) {
           cytnx_error_msg(true,
-                          "[ERROR][put_block][BlockUniTensor] no avaliable block exists, "
+                          "[ERROR][put_block][BlockUniTensor] no available block exists, "
                           "check=true, so error throws. \n    If you want without error when block "
-                          "is not avaliable, set check=false.%s",
+                          "is not available, set check=false.%s",
                           "\n");
         }
       } else {
@@ -1548,9 +1548,9 @@ namespace cytnx {
       if (b < 0) {
         if (check) {
           cytnx_error_msg(true,
-                          "[ERROR][put_block][BlockUniTensor] no avaliable block exists, "
+                          "[ERROR][put_block][BlockUniTensor] no available block exists, "
                           "check=true, so error throws. \n    If you want without error when block "
-                          "is not avaliable, set check=false.%s",
+                          "is not available, set check=false.%s",
                           "\n");
         }
       } else {
@@ -1763,13 +1763,13 @@ namespace cytnx {
       _inner_to_outer_idx;  // stores the qindices for each block
     std::vector<Tensor> _blocks;
     Tensor NullRefTensor;  // this returns when accessed block does not exists!
-    // additional informaiton for fermions:
+    // additional information for fermions:
     std::vector<cytnx_bool>
       _signflip;  // if true, the sign of the corresponding block needs to be flipped
 
     // given an index list [loc], get qnums from this->_bonds[loc] and return the combined qnums
     // calculated from Symm object! this assume 1. symmetry are the same for each bond!
-    //             2. total_qns are feeded with size len(symmetry)
+    //             2. total_qns are fed with size len(symmetry)
     void _fx_get_total_fluxs(std::vector<cytnx_uint64> &loc, const std::vector<Symmetry> &syms,
                              std::vector<cytnx_int64> &total_qns) {
       //[21 Aug 2024] This is a copy from BlockUniTensor;
@@ -1946,7 +1946,7 @@ namespace cytnx {
       return this->_blocks[idx].clone();
     };
 
-    // this one for Block will return the indicies!!
+    // this one for Block will return the indices!!
     Tensor get_block(const std::vector<cytnx_int64> &indices, const bool &force_return) const {
       //[21 Aug 2024] This is a copy from BlockUniTensor;
       cytnx_error_msg(
@@ -1971,11 +1971,11 @@ namespace cytnx {
           return NullRefTensor;
         } else {
           cytnx_error_msg(true,
-                          "[ERROR][get_block][BlockFermionicUniTensor] no avaliable block exists, "
+                          "[ERROR][get_block][BlockFermionicUniTensor] no available block exists, "
                           "force_return=false, so "
                           "error throws. \n    If you want to return an empty block without "
                           "error when block is "
-                          "not avaliable, set force_return=True.%s",
+                          "not available, set force_return=True.%s",
                           "\n");
         }
       } else {
@@ -2022,11 +2022,11 @@ namespace cytnx {
           return this->NullRefTensor;
         } else {
           cytnx_error_msg(true,
-                          "[ERROR][get_block][BlockFermionicUniTensor] no avaliable block exists, "
+                          "[ERROR][get_block][BlockFermionicUniTensor] no available block exists, "
                           "force_return=false, so "
                           "error throws. \n    If you want to return an empty block without "
                           "error when block is "
-                          "not avaliable, set force_return=True.%s",
+                          "not available, set force_return=True.%s",
                           "\n");
         }
       } else {
@@ -2058,11 +2058,11 @@ namespace cytnx {
           return this->NullRefTensor;
         } else {
           cytnx_error_msg(true,
-                          "[ERROR][get_block][BlockFermionicUniTensor] no avaliable block exists, "
+                          "[ERROR][get_block][BlockFermionicUniTensor] no available block exists, "
                           "force_return=false, so "
                           "error throws. \n    If you want to return an empty block without "
                           "error when block is "
-                          "not avaliable, set force_return=True.%s",
+                          "not available, set force_return=True.%s",
                           "\n");
         }
       } else {
@@ -2286,9 +2286,9 @@ namespace cytnx {
       if (b < 0) {
         if (check) {
           cytnx_error_msg(true,
-                          "[ERROR][put_block][BlockFermionicUniTensor] no avaliable block exists, "
+                          "[ERROR][put_block][BlockFermionicUniTensor] no available block exists, "
                           "check=true, so error throws. \n    If you want without error when block "
-                          "is not avaliable, set check=false.%s",
+                          "is not available, set check=false.%s",
                           "\n");
         }
       } else {
@@ -2332,9 +2332,9 @@ namespace cytnx {
       if (b < 0) {
         if (check) {
           cytnx_error_msg(true,
-                          "[ERROR][put_block][BlockFermionicUniTensor] no avaliable block exists, "
+                          "[ERROR][put_block][BlockFermionicUniTensor] no available block exists, "
                           "check=true, so error throws. \n    If you want without error when block "
-                          "is not avaliable, set check=false.%s",
+                          "is not available, set check=false.%s",
                           "\n");
         }
       } else {
@@ -2619,7 +2619,7 @@ namespace cytnx {
    public:
     ///@cond
     boost::intrusive_ptr<UniTensor_base> _impl;
-    UniTensor() : _impl(new UniTensor_base()){};
+    UniTensor() : _impl(new UniTensor_base()) {};
     UniTensor(const UniTensor &rhs) { this->_impl = rhs._impl; }
     UniTensor &operator=(const UniTensor &rhs) {
       this->_impl = rhs._impl;
@@ -2637,9 +2637,9 @@ namespace cytnx {
 
     @note
         1. The constructed UniTensor will have the same rank as the input Tensor, with default
-    labels, and a shared view (shared instance) of interal block as the input Tensor.
+    labels, and a shared view (shared instance) of internal block as the input Tensor.
         2. The constructed UniTensor is always untagged.
-    @attention The internal block of the UniTensor is a referece to the input Tensor. That is, they
+    @attention The internal block of the UniTensor is a reference to the input Tensor. That is, they
     share the same memory. If the elements of the UniTensor are changed, the original Tensor is also
     changed and vice-versa. Use Tensor.clone() if a shared view is not desired.
 
@@ -2670,9 +2670,9 @@ namespace cytnx {
 
     @note
         1. The constructed UniTensor will have the same rank as the input Tensor, with default
-    labels, and a shared view (shared instance) of interal block as the input Tensor.
+    labels, and a shared view (shared instance) of internal block as the input Tensor.
         2. The constructed UniTensor is always untagged.
-    @attention The internal block of the UniTensor is a referece to the input Tensor. That is, they
+    @attention The internal block of the UniTensor is a reference to the input Tensor. That is, they
     share the same memory. If the elements of the UniTensor are changed, the original Tensor is also
     changed and vice-versa. Use Tensor.clone() if a shared view is not desired.
         @see UniTensor(const Tensor &, const bool &, const cytnx_int64 &)
@@ -2701,7 +2701,7 @@ namespace cytnx {
         This can only be assigned true when the UniTensor is square and rank-2 UniTensor.
         The UniTensor must have one in-bond and one out-bond.
     @pre
-        1. the bonds cannot contain simutaneously untagged bond(s) and tagged bond(s)
+        1. the bonds cannot contain simultaneously untagged bond(s) and tagged bond(s)
         2. If the bonds are with symmetry (qnums), the symmetry types should be the same across
     all the bonds.
     */
@@ -3230,7 +3230,7 @@ namespace cytnx {
     }
 
     /**
-    @brief relables all of the labels in UniTensor.
+    @brief relabels all of the labels in UniTensor.
     @see relabel(const std::vector<std::string> &new_labels) const
      */
     UniTensor relabel(const std::initializer_list<char *> &new_labels) const {
@@ -3946,7 +3946,7 @@ namespace cytnx {
                      const bool &force = false) const {
       cytnx_error_msg(
         labels.size() != qidx.size(),
-        "[ERROR][get_block] length of lists must be the same for both lables and qnidices%s", "\n");
+        "[ERROR][get_block] length of lists must be the same for both labels and qnidices%s", "\n");
       cytnx_error_msg(labels.size() != this->rank(),
                       "[ERROR][get_block] length of lists must be the rank (# of legs)%s", "\n");
 
@@ -4041,7 +4041,7 @@ namespace cytnx {
                       const bool &force = false) {
       cytnx_error_msg(
         labels.size() != qidx.size(),
-        "[ERROR][get_block] length of lists must be the same for both lables and qnidices%s", "\n");
+        "[ERROR][get_block] length of lists must be the same for both labels and qnidices%s", "\n");
       cytnx_error_msg(labels.size() != this->rank(),
                       "[ERROR][get_block] length of lists must be the rank (# of legs)%s", "\n");
 
@@ -4174,7 +4174,7 @@ namespace cytnx {
                    const std::vector<cytnx_int64> &qidx, const bool &force = false) {
       cytnx_error_msg(
         lbls.size() != qidx.size(),
-        "[ERROR][put_block] length of lists must be the same for both lables and qnidices%s", "\n");
+        "[ERROR][put_block] length of lists must be the same for both labels and qnidices%s", "\n");
       cytnx_error_msg(lbls.size() != this->rank(),
                       "[ERROR][put_block] length of lists must be the rank (# of legs)%s", "\n");
 
@@ -4222,7 +4222,7 @@ namespace cytnx {
                     const std::vector<cytnx_int64> &qidx, const bool &force = false) {
       cytnx_error_msg(
         lbls.size() != qidx.size(),
-        "[ERROR][put_block_] length of lists must be the same for both lables and qnidices%s",
+        "[ERROR][put_block_] length of lists must be the same for both labels and qnidices%s",
         "\n");
       cytnx_error_msg(lbls.size() != this->rank(),
                       "[ERROR][put_block_] length of lists must be the rank (# of legs)%s", "\n");
@@ -4354,7 +4354,7 @@ namespace cytnx {
     }
 
     /**
-    @brief Combine the sevral bonds of the UniTensor.
+    @brief Combine the several bonds of the UniTensor.
         @param[in] indicators the labels of the lags you want to combine.
         @param[in] force If force is true, it will combine the bonds anyway even the direction
       of the bonds are same. After combining, the direction of the bonds will be set as
@@ -4446,8 +4446,8 @@ namespace cytnx {
     }
 
     /**
-    @brief The multiplcation function of the UniTensor.
-        @details This is multiplcation function of the UniTensor. Given the UniTensor
+    @brief The multiplication function of the UniTensor.
+        @details This is multiplication function of the UniTensor. Given the UniTensor
             \f$ UT_2\f$ as the argument, it will return
                 \f[
                   UT_{self} = UT_{self} \times UT_2
@@ -4605,7 +4605,7 @@ namespace cytnx {
                 \f[
                   UT = UT_{self} \times UT_2
                 \f]
-                Perform element-wise multiplcation of two UniTensor.
+                Perform element-wise multiplication of two UniTensor.
         @param[in] rhs The UniTensor you want to multiplicate by.
         @return UniTensor
         @pre
@@ -4992,7 +4992,7 @@ namespace cytnx {
     /**
     @brief Take the conjugate transpose to the UniTensor.
         @return UniTensor
-    @note Compared to Dagger_(), this function will create a new UniTensor ojbect.
+    @note Compared to Dagger_(), this function will create a new UniTensor object.
         @see Dagger_(), Transpose()
         */
     UniTensor Dagger() const {
@@ -5030,7 +5030,7 @@ namespace cytnx {
         @details Take power \p p on all the elements in the UniTensor.
         @param p power
         @return UniTensor
-    @note Compared to Pow_(), this function will create a new UniTensor ojbect.
+    @note Compared to Pow_(), this function will create a new UniTensor object.
         @see Pow_()
         */
     UniTensor Pow(const double &p) const;
@@ -5057,7 +5057,7 @@ namespace cytnx {
 
     /**
      * @deprecated
-     * This function is deprecated, please use at() instread.
+     * This function is deprecated, please use at() instead.
      * @note C++: Deprecated soon, use at()
      */
     template <class T>
@@ -5067,7 +5067,7 @@ namespace cytnx {
 
     /**
      * @deprecated
-     * This function is deprecated, please use at() instread.
+     * This function is deprecated, please use at() instead.
      * @note C++: Deprecated soon, use at()
      */
     template <class T2>
@@ -5268,7 +5268,7 @@ namespace cytnx {
 
     /**
     @brief Generate a identity UniTensor.
-    @param[in] dim the dimension of the diagnal.
+    @param[in] dim the dimension of the diagonal.
     @param[in] in_labels the labels of the UniTensor.
     @param[in] is_diag determine if the UniTensor is diagonal or not. Default is false.
     @param[in] dtype the data type of the UniTensor, see cytnx::Type for more information.
@@ -5292,7 +5292,7 @@ namespace cytnx {
 
     /**
     @brief Generate a 2-bond identity UniTensor
-    @param[in] dim the dimension of the diagnal.
+    @param[in] dim the dimension of the diagonal.
     @param[in] in_labels the labels of the UniTensor.
     @param[in] is_diag determine if the UniTensor is diagonal or not. Default is false.
     @param[in] dtype the data type of the UniTensor, see cytnx::Type for more information.
@@ -5574,7 +5574,7 @@ namespace cytnx {
   operation.
   @param[in] TNs the Tensors.
   @param[in] order desired contraction order.
-  @param[in] optimal wheather to find the optimal contraction order automatically.
+  @param[in] optimal whether to find the optimal contraction order automatically.
   @return
       [UniTensor]
 

@@ -19,7 +19,7 @@ namespace cytnx {
                       const vector<blas_int> &group_size, const unsigned int dtype,
                       const int device) {
       bool check_parameters = false;
-      bool guarentee_same_good_type = false;
+      bool guarantee_same_good_type = false;
       if (check_parameters) {
         cytnx_error_msg(group_size.size() != group_count,
                         "[Gemm_Batch] error, group_size.size() != group_count%s", "\n");
@@ -33,7 +33,7 @@ namespace cytnx {
         cytnx_error_msg(beta_array.size() != tot_tns,
                         "[Gemm_Batch] error, beta_array.size() != total tensor count%s", "\n");
       }
-      if (!guarentee_same_good_type) {
+      if (!guarantee_same_good_type) {
         for (cytnx_uint64 i = 0; i < alpha_array.size(); i++) {
           // check Void type
           cytnx_error_msg(alpha_array[i].dtype() == Type.Void,

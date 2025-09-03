@@ -20,7 +20,7 @@ print("after")
 print(T)
 print(CyT)
 
-#If we want a new instance of memery, use clone at initialize:
+#If we want a new instance of memory, use clone at initialize:
 print("[non-share example]")
 CyT_nonshare = UniTensor(T.clone(),rowrank=2);
 

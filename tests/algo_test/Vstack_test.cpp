@@ -44,7 +44,7 @@ namespace VstackTest {
   }
 
   /*=====test info=====
-  describe:Test arbitray two data type.
+  describe:Test arbitrary two data type.
   input:Three tensor on cpu device with the shapes [(3, 4), (2, 4)] but the data type may be
   different. Test all possible data type with arbitrary combination.
   ====================*/
@@ -52,7 +52,7 @@ namespace VstackTest {
     for (auto dtype1 : dtype_list) {
       for (auto dtype2 : dtype_list) {
         if (dtype1 == Type.Bool &&
-            dtype2 == Type.Bool)  // if bothe are bool type, it will throw error.
+            dtype2 == Type.Bool)  // if both are bool type, it will throw error.
           continue;
         std::vector<Tensor> Ts = {Tensor({3, 4}, dtype1), Tensor({2, 4}, dtype2)};
         InitTensorUniform(Ts);

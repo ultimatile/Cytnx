@@ -398,7 +398,7 @@ namespace cytnx {
 
     ///@cond
     boost::intrusive_ptr<Tensor_impl> _impl;
-    Tensor() : _impl(new Tensor_impl()){};
+    Tensor() : _impl(new Tensor_impl()) {};
     Tensor(const Tensor &rhs) { _impl = rhs._impl; }
 
     /*
@@ -516,7 +516,7 @@ namespace cytnx {
     // convert this->_impl->_storage._impl->Mem to a typed variant of pointers, excluding void*
     pointer_types ptr() const;
 
-    // convert this->_impl->_strorage->Mem to the given pointer type.
+    // convert this->_impl->_storage->Mem to the given pointer type.
     // Throws an exception if T does not match this->dtype
     template <typename T>
     T *ptr_as(bool check_type = true) const {
@@ -538,7 +538,7 @@ namespace cytnx {
     // convert this->_impl->_storage->Mem to a typed variant of pointers, excluding void*
     gpu_pointer_types gpu_ptr() const;
 
-    // convert this->_impl->_strorage->Mem to the given pointer type.
+    // convert this->_impl->_storage->Mem to the given pointer type.
     // Throws an exception if T does not match this->dtype
     template <typename T>
     T *gpu_ptr_as(bool check_type = true) const {
@@ -964,7 +964,7 @@ namespace cytnx {
     Tensor.
         2. Although the return is by reference in C++ part, the return in python is not.
         3. From 2., We recommend user to use at<T> (C++ API) and [] (python API) to modify the value
-    of the element to have consistant syntax across two languages.
+    of the element to have consistent syntax across two languages.
 
     ## Example:
     ### c++ API:
@@ -1007,7 +1007,7 @@ namespace cytnx {
     @brief get elements using Accessor (C++ API) / slices (python API)
     @param[in] accessors the Accessor (C++ API) / slices (python API) to get the elements.
     @return [Tensor]
-    @see \link cytnx::Accessor Accessor\endlink for cordinate with Accessor in C++ API.
+    @see \link cytnx::Accessor Accessor\endlink for coordinate with Accessor in C++ API.
     @note
         1. the return will be a new Tensor instance, which not share memory with the current Tensor.
 
@@ -1307,7 +1307,7 @@ namespace cytnx {
      * @brief Division function with a Tensor or a scalar. Same as
      * cytnx::operator/(const Tensor &self, const T &rhs).
      * @param[in] rhs the divided Tensor or scalar.
-     * @attension \p rhs cannot be zero.
+     * @attention \p rhs cannot be zero.
      */
     template <class T>
     Tensor Div(const T &rhs) {
@@ -1318,7 +1318,7 @@ namespace cytnx {
      * @brief Division function with a Tensor or a scalar, inplacely.
      * Same as operator/=(const T &rhs).
      * @param[in] rhs the divided Tensor or scalar.
-     * @attension \p rhs cannot be zero.
+     * @attention \p rhs cannot be zero.
      */
     template <class T>
     Tensor &Div_(const T &rhs) {
@@ -1390,7 +1390,7 @@ namespace cytnx {
     /**
      * @brief The flatten function.
      * @details This function is the flatten function. It will clone (deep copy)
-     * , contiguos the current tensor and reshape it to 1-rank Tensor.
+     * , make the current tensor contiguous, and reshape it to 1-rank Tensor.
      * @note compare to the flatten_() function, this function will return a new
      * tensor and the current tensor will not be changed.
      */
@@ -1404,7 +1404,7 @@ namespace cytnx {
     /**
      * @brief The flatten function, inplacely.
      * @details This function is the flatten function, inplacely. It will
-     * contiguos the current tensor and reshape it to 1-rank Tensor.
+     * make the current tensor contiguous, and reshape it to 1-rank Tensor.
      * @note compare to the flatten() function, this is an inplacely function,
      * the current tensor will be changed.
      */
@@ -1540,7 +1540,7 @@ namespace cytnx {
         if(this->shape().size()==1){
             // check if rhs is a scalar tensor (only one element)
             cytnx_error_msg(!(rhs.shape().size()==1 && rhs.shape()[0]==1),"[ERROR] trying to append
-    a scalar into multidimentional Tensor is not allow.\n Only rank-1 Tensor can accept scalar
+    a scalar into multidimensional Tensor is not allow.\n Only rank-1 Tensor can accept scalar
     append.%s","\n"); this->_impl->_shape[0]+=1; this->_impl->_storage.append(0);
 
         }else{
@@ -1566,7 +1566,7 @@ namespace cytnx {
     template <class T>
     void append(const T &rhs) {
       cytnx_error_msg(this->shape().size() != 1,
-                      "[ERROR] trying to append a scalar into multidimentional Tensor is not "
+                      "[ERROR] trying to append a scalar into multidimensional Tensor is not "
                       "allow.\n Only rank-1 Tensor can accept scalar append.%s",
                       "\n");
       cytnx_error_msg(!this->is_contiguous(),

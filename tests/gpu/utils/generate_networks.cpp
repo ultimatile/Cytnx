@@ -44,7 +44,7 @@ int main(void) {
     bonds.pb(l);
     tot_bond_cnt += SZ(l);
   }
-  // At most 3*2=6 uncontracted bond for preventing from explosion dimention of tensor
+  // At most 3*2=6 uncontracted bond for preventing from explosion dimension of tensor
   int tmp = rnd((int)tot_bond_cnt / ((int)2));
   int cont_cnt = max(tmp, tot_bond_cnt / 2 - 3), neg_bond_cnt = tot_bond_cnt - 2 * cont_cnt;
   rep(i, 1, cont_cnt + 1) rep(__, 0, 2) flatlink.pb(i);

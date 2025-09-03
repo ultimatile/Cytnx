@@ -157,7 +157,7 @@ TEST_F(DenseUniTensorTest, set_labels_normal) {
   utzero345.set_labels(new_labels);
   EXPECT_EQ(utzero345.labels(), new_labels);
 
-  // initilizer list
+  // initializer list
   utzero345.set_labels({"org 1", "org 2", "org 3"});
   utzero345.set_labels({"testing 1", "testing 2", "testing 3"});
   EXPECT_EQ(utzero345.labels(), new_labels);
@@ -466,7 +466,7 @@ TEST_F(DenseUniTensorTest, bonds) {
 }
 
 /*=====test info=====
-describe:test bonds with empty bonds an uninitialzed UniTensor
+describe:test bonds with empty bonds an uninitialized UniTensor
 ====================*/
 TEST_F(DenseUniTensorTest, bonds_empty) {
   std::vector<Bond> bonds = {};
@@ -493,7 +493,7 @@ TEST_F(DenseUniTensorTest, shape_empty_bonds) {
 }
 
 /*=====test info=====
-describe:test shape with uninitialzed UniTensor
+describe:test shape with uninitialized UniTensor
 ====================*/
 TEST_F(DenseUniTensorTest, shape_uninit) { EXPECT_ANY_THROW(ut_uninit.shape()); }
 
@@ -830,7 +830,7 @@ TEST_F(DenseUniTensorTest, permute_all_dtype) {
 /*=====test info=====
 describe:test permute, as original map
 ====================*/
-TEST_F(DenseUniTensorTest, permute_orginal_map) {
+TEST_F(DenseUniTensorTest, permute_original_map) {
   std::vector<Bond> bonds = {Bond(3), Bond(4), Bond(5)};
   int seed = 0;
   UniTensor ut = UniTensor(bonds);
@@ -867,7 +867,7 @@ TEST_F(DenseUniTensorTest, permute_rowrank) {
 }
 
 /*=====test info=====
-describe:test permute, input diagnol UniTensor
+describe:test permute, input diagonal UniTensor
 ====================*/
 TEST_F(DenseUniTensorTest, permute_diag) {
   std::vector<cytnx_int64> map = {1, 0};
@@ -957,7 +957,7 @@ TEST_F(DenseUniTensorTest, permute__all_dtype) {
 /*=====test info=====
 describe:test permute_, as original map
 ====================*/
-TEST_F(DenseUniTensorTest, permute__orginal_map) {
+TEST_F(DenseUniTensorTest, permute__original_map) {
   std::vector<Bond> bonds = {Bond(3), Bond(4), Bond(5)};
   int seed = 0;
   UniTensor ut = UniTensor(bonds);
@@ -997,7 +997,7 @@ TEST_F(DenseUniTensorTest, permute__rowrank) {
 }
 
 /*=====test info=====
-describe:test permute, input diagnol UniTensor
+describe:test permute, input diagonal UniTensor
 ====================*/
 TEST_F(DenseUniTensorTest, permute__diag) {
   std::vector<cytnx_int64> map = {1, 0};
@@ -1436,7 +1436,7 @@ TEST_F(DenseUniTensorTest, put_block) {
 describe:test put_block, type different
 UniTensor:double type unitensor
 Tensor:bool type unitensor
-result:after putblock, the UniTenosr becomes bool type
+result:after putblock, the UniTensor becomes bool type
 ====================*/
 TEST_F(DenseUniTensorTest, put_block_diff_type) {
   constexpr cytnx_uint64 dim1 = 2, dim2 = 3;
@@ -1535,7 +1535,7 @@ TEST_F(DenseUniTensorTest, put_block_) {
 describe:test put_block_, type different
 UniTensor:double type unitensor
 Tensor:bool type unitensor
-result:after put_block_, the UniTenosr becomes bool type
+result:after put_block_, the UniTensor becomes bool type
 ====================*/
 TEST_F(DenseUniTensorTest, put_block__diff_type) {
   constexpr cytnx_uint64 dim1 = 2, dim2 = 3;
@@ -4796,7 +4796,7 @@ TEST_F(DenseUniTensorTest, zeros) {
 }
 
 /*=====test info=====
-describe:test zeros erro, label number not match
+describe:test zeros error, label number not match
 ====================*/
 TEST_F(DenseUniTensorTest, zeros_err) {
   std::vector<cytnx_uint64> shape = {3u, 5u, 4u};
@@ -4843,7 +4843,7 @@ TEST_F(DenseUniTensorTest, ones) {
 }
 
 /*=====test info=====
-describe:test ones erro, label number not match
+describe:test ones error, label number not match
 ====================*/
 TEST_F(DenseUniTensorTest, ones_err) {
   std::vector<cytnx_uint64> shape = {3u, 5u, 4u};

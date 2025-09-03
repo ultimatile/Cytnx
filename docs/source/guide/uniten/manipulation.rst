@@ -50,8 +50,8 @@ Output >>
 Combine bonds
 ************************************
 
-The tagged UniTensors include symmetric UniTensors cannot be reshaped, since the bonds to be combinded or splited now includes the direction and quantum number infomation,
-the reshape process involves the fusion or split of the qunatum basis, we provide combindBonds API for the tagged UniTensor as an alternative to the usual reshape function.
+The tagged UniTensors include symmetric UniTensors cannot be reshaped, since the bonds to be combined or split now includes the direction and quantum number information,
+the reshape process involves the fusion or split of the quantum basis, we provide combindBonds API for the tagged UniTensor as an alternative to the usual reshape function.
 Note that currently there is no API for splitting a bond, since the way to split the quantum basis will be ambiguous.
 Let's see the complete function usage for combining bonds:
 
@@ -89,7 +89,7 @@ Another property that we may want to maintain in UniTensor is its rowrank. It te
 
 Most of the linear algebra algorithms take a matrix as an input. We thus use rowrank to specify how to cast the input UniTensor into a matrix. In Cytnx, this specification makes it easy to use linear algebra operations on UniTensors.
 
-The rowrank can be specified when initializing the UniTenosr, one can also use **.set_rowrank()** to modify the rowrank of a UniTensor:
+The rowrank can be specified when initializing the UniTensor, one can also use **.set_rowrank()** to modify the rowrank of a UniTensor:
 
 * In Python:
 
@@ -103,13 +103,13 @@ Output >>
     :language: text
 
 
-We leave the examples of linalg algebra operations incoporating the rowrank concept such as **singular value decomposition (SVD)** to the chapter :ref:`linalg extension`.
+We leave the examples of linalg algebra operations incorporating the rowrank concept such as **singular value decomposition (SVD)** to the chapter :ref:`linalg extension`.
 
 
 Transpose
 **********************
 
-One common operation that is sensitive to the **rowrank** of a UniTensor is the tranpose, one can transpose a UniTensor using **.Transpose()** (or the in-placed method **.Transpose_()**), let's see the behavior of this operation, first consider the transpose of a **non-tagged** UniTensor:
+One common operation that is sensitive to the **rowrank** of a UniTensor is the transpose, one can transpose a UniTensor using **.Transpose()** (or the in-placed method **.Transpose_()**), let's see the behavior of this operation, first consider the transpose of a **non-tagged** UniTensor:
 
 * In Python:
 

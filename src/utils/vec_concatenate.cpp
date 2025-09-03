@@ -13,7 +13,7 @@ namespace cytnx {
   template <>
   std::vector<bool> vec_concatenate(const std::vector<bool> &inL, const std::vector<bool> &inR) {
     std::vector<bool> out(inL.size() + inR.size());
-    // vector bool does not guarentee concurrent modification
+    // vector bool does not guarantee concurrent modification
     for (cytnx_uint64 i = 0; i < inL.size(); i++) {
       out[i] = inL[i];
     }
@@ -25,7 +25,7 @@ namespace cytnx {
   std::vector<std::string> vec_concatenate(const std::vector<std::string> &inL,
                                            const std::vector<std::string> &inR) {
     std::vector<std::string> out(inL.size() + inR.size());
-    // vector bool does not guarentee concurrent modification
+    // vector bool does not guarantee concurrent modification
     for (cytnx_uint64 i = 0; i < inL.size(); i++) {
       out[i] = inL[i];
     }
@@ -52,7 +52,7 @@ namespace cytnx {
                     "vec_concatenate_ to inL or inR.%s",
                     "\n");
     out.resize(inL.size() + inR.size());
-    // vector bool does not guarentee concurrent modification
+    // vector bool does not guarantee concurrent modification
     for (cytnx_uint64 i = 0; i < inL.size(); i++) out[i] = inL[i];
     for (cytnx_uint64 i = 0; i < inR.size(); i++) out[inL.size() + i] = inR[i];
   }
@@ -64,7 +64,7 @@ namespace cytnx {
                     "vec_concatenate_ to inL or inR.%s",
                     "\n");
     out.resize(inL.size() + inR.size());
-    // vector bool does not guarentee concurrent modification
+    // vector bool does not guarantee concurrent modification
     for (cytnx_uint64 i = 0; i < inL.size(); i++) out[i] = inL[i];
     for (cytnx_uint64 i = 0; i < inR.size(); i++) out[inL.size() + i] = inR[i];
   }

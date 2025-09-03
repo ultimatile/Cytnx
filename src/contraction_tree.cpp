@@ -56,7 +56,7 @@ namespace cytnx {
 
     // evaluate each token, and construct the Contraction Tree.
     this->nodes_container.reserve(
-      this->base_nodes.size());  // reserve a contiguous memeory address to prevent re-allocate that
+      this->base_nodes.size());  // reserve a contiguous memory address to prevent re-allocate that
                                  // change address.
     for (cytnx_uint64 i = 0; i < tokens.size(); i++) {
       tok = str_strip(tokens[i]);  // remove space.

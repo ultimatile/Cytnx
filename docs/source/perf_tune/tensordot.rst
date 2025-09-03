@@ -1,6 +1,6 @@
 Tensordot with input cache
 *****************************
-Starting from v0.6.4a, **linalg::Tensordot** provides an additional option *cache* for both input tensors. The feature provides user flexibility to minimize the redundant move of elements when the tensordot is repeatly called on two same Tensors.
+Starting from v0.6.4a, **linalg::Tensordot** provides an additional option *cache* for both input tensors. The feature provides user flexibility to minimize the redundant move of elements when the tensordot is repeatedly called on two same Tensors.
 
 To show how this makes difference, let's consider a scenario where we contract two *A* and *B* Tensors N times:
 
@@ -18,7 +18,7 @@ To show how this makes difference, let's consider a scenario where we contract t
 
 
 
-In the above code, we see that **Tensordot** on *A* and *B* are repeatly evaluated where no change is made on *A* and *B*. Now, inside **Tensordot**, both Tensor *A* and *B* will be first contiguous-permuted to shapes with
+In the above code, we see that **Tensordot** on *A* and *B* are repeatedly evaluated where no change is made on *A* and *B*. Now, inside **Tensordot**, both Tensor *A* and *B* will be first contiguous-permuted to shapes with
 
 .. math::
 
@@ -29,7 +29,7 @@ In the above code, we see that **Tensordot** on *A* and *B* are repeatly evaluat
     B: (0,1,2,3) \rightarrow (\mathbf{1},\mathbf{0},2,3)
 
 
-which the data of *A* and *B* are then feed into **Matmul** to get the outcome. Specifically, for each **Tensordot()** call, it is equivalent to (psudo-code)
+which the data of *A* and *B* are then feed into **Matmul** to get the outcome. Specifically, for each **Tensordot()** call, it is equivalent to (pseudo-code)
 
 .. code-block:: python
     :linenos:
@@ -65,7 +65,7 @@ We can clearly see the downside of this: every time **Tensordot()** is called, w
 
 .. Note::
 
-    1. Here, we use the word "memorize". Technically, we just move the internal data to it's direct gemm place, and modify the meta data of Tensor to be the same as original input. Note that this will put the *A* and *B* in their non-contiguous status. In terms of user's perspective point of view,  there is no differece of using API than we used to do without cache.
+    1. Here, we use the word "memorize". Technically, we just move the internal data to it's direct gemm place, and modify the meta data of Tensor to be the same as original input. Note that this will put the *A* and *B* in their non-contiguous status. In terms of user's perspective point of view,  there is no difference of using API than we used to do without cache.
 
     2. The two input Tensors cannot have same_data()=True. This will be check inside **Tensordot**.
 

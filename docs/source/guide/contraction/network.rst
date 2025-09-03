@@ -97,7 +97,7 @@ Output >>
 PutUniTensor according to label ordering
 ------------------------------------------
 
-When we put a UniTensor into a Network, we can also specify its leg order according to a label ordering, this interface turns out to be convinient since users don't need to memorize look up the index of s desired leg. To be more specific, consider a example, we grab two three leg tensors **A1** and **A2**, they both have one leg that spans the physical space and the other two legs describe the virtual space (such tensors are often appearing as the building block tensors of matrix product state), we create the tensors and set the corresponding lebels as following:
+When we put a UniTensor into a Network, we can also specify its leg order according to a label ordering, this interface turns out to be convenient since users don't need to memorize look up the index of s desired leg. To be more specific, consider a example, we grab two three leg tensors **A1** and **A2**, they both have one leg that spans the physical space and the other two legs describe the virtual space (such tensors are often appearing as the building block tensors of matrix product state), we create the tensors and set the corresponding lebels as following:
 
 * In Python:
 
@@ -155,10 +155,10 @@ To set or find the optimal contraction order of our tensor network, we provide *
 
 .. Note::
 
-    Although Network does cache the optimal contraction order once it is found, the optimal order finding rountine will still be executed everytime we call the .setOrder(optimal= true), it is suggested that one store the optimal order and specify it manually in some situaitions to prevent the overhead of re-finding optimal order.
+    Although Network does cache the optimal contraction order once it is found, the optimal order finding routine will still be executed everytime we call the .setOrder(optimal= true), it is suggested that one store the optimal order and specify it manually in some situaitions to prevent the overhead of re-finding optimal order.
 
 
-We can also pass the string specifying our desired contraction order in the second arguement:
+We can also pass the string specifying our desired contraction order in the second argument:
 
 * In Python:
 

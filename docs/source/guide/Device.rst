@@ -20,7 +20,7 @@ To check how many threads can be used in your current program by Cytnx, you can 
     :language: c++
     :linenos:
 
-If Cytnx is not compiled with OpenMP avaliable, the Device.Ncpus will always return 1.
+If Cytnx is not compiled with OpenMP available, the Device.Ncpus will always return 1.
 
 
 .. Note::

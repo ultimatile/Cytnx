@@ -63,7 +63,7 @@ namespace GesvdTest {
   /*=====test info=====
   describe:Test U1 symmetry tensor.
   input:
-    T:Tensor with U1 symmetry (Double and ComplexDoubel).
+    T:Tensor with U1 symmetry (Double and ComplexDoublel).
     is_U:true
     is_VT:true
   ====================*/
@@ -79,7 +79,7 @@ namespace GesvdTest {
   /*=====test info=====
   describe:Test Z2 symmetry tensor.
   input:
-    T:Tensor with Z2 symmetry (Double and ComplexDoubel).
+    T:Tensor with Z2 symmetry (Double and ComplexDoublel).
     is_U:true
     is_VT:true
   ====================*/
@@ -95,7 +95,7 @@ namespace GesvdTest {
   /*=====test info=====
   describe:Test Z3 symmetry tensor.
   input:
-    T:Tensor with Z3 symmetry (Double and ComplexDoubel).
+    T:Tensor with Z3 symmetry (Double and ComplexDoublel).
     is_U:true
     is_VT:true
   ====================*/

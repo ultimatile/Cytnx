@@ -18,7 +18,7 @@ namespace cytnx {
                            const unsigned int &seed);
     class random_internal_interface {
      public:
-      // fucntion signature:
+      // function signature:
       //-------------------------
       std::vector<Rnd_io> Normal;
       std::vector<Rnd_io> Uniform;

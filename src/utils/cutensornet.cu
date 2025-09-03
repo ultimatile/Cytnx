@@ -144,7 +144,7 @@ namespace cytnx {
 
   void cutensornet::set_output_extents(std::vector<cytnx_uint64> &outshape) {
     extentR = std::vector<int64_t>(outshape.size());
-    // reversed tranversal the labels and extents because cuTensor is column-major by default
+    // traverse the labels and extends in reverse because cuTensor is column-major by default
     for (size_t i = 0; i < outshape.size(); i++) extentR[i] = outshape[outshape.size() - 1 - i];
   }
 
@@ -153,7 +153,7 @@ namespace cytnx {
   }
 
   void cutensornet::setInputMem(std::vector<UniTensor> &uts) {
-    // reversed tranversal the labels and extents because cuTensor is column-major by default
+    // traverse the labels and extends in reverse because cuTensor is column-major by default
     rawDataIn_d = std::vector<void *>(uts.size());
     tns = std::vector<UniTensor>(uts.size());
     for (int idx = 0; idx < uts.size(); idx++) {
@@ -171,7 +171,7 @@ namespace cytnx {
   }
 
   void cutensornet::set_extents(std::vector<UniTensor> &uts) {
-    // reversed tranversal the labels and extents because cuTensor is column-major by default
+    // traverse the labels and extends in reverse because cuTensor is column-major by default
     for (size_t idx = 0; idx < numInputs; idx++) {
       for (size_t j = 0; j < numModesIn[idx]; j++) {
         tmp_extents[idx][j] = uts[idx].shape()[numModesIn[idx] - 1 - j];

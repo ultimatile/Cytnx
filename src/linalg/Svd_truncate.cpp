@@ -152,7 +152,7 @@ namespace cytnx {
         t++;  // vT
       }
 
-      // if tag, then update  the tagging informations
+      // if tag, then update the tagging information
       if (Tin.is_tag()) {
         Cy_S.tag();
         t = 1;

@@ -203,7 +203,7 @@ namespace cytnx {
   @brief linear algebra related functions.
   @details This namespace contains all the linear algebra related functions.
   For example, the matrix multiplication, the singular value decomposition, etc.
-  If the linear algebra can only perfom on a matrix, then in most cases,
+  If the linear algebra can only perform on a matrix, then in most cases,
   1. If the object is Tensor, then it need to be rank-2.
   2. If the object is UniTensor, then the result will depend on the UniTensor's
   rowrank.
@@ -755,7 +755,7 @@ namespace cytnx {
      * @details This function performs the Singular-Value decomposition of a UniTensor \p Tin and
      * truncates the singular values. The result will depend on the rowrank of the
      * UniTensor \p Tin. For each block, the minimum dimension can be chosen. This can be helpful to
-     * avoid loosing symmetry sectors in the truncated SVD. For more details, please refer to the
+     * avoid losing symmetry sectors in the truncated SVD. For more details, please refer to the
      * documentation of the function \ref Svd_truncate(const Tensor &Tin, const cytnx_uint64
      * &keepdim, const double &err, const bool &is_UvT, const unsigned int &return_err).
      *
@@ -896,7 +896,7 @@ namespace cytnx {
     std::vector<cytnx::UniTensor> Hosvd(
       const cytnx::UniTensor &Tin, const std::vector<cytnx_uint64> &mode,
       const bool &is_core = true, const bool &is_Ls = false,
-      const std::vector<cytnx_int64> &trucate_dim = std::vector<cytnx_int64>());
+      const std::vector<cytnx_int64> &truncate_dim = std::vector<cytnx_int64>());
 
     /**
      * @brief Perform the exponential function on a UniTensor, which the blocks are
@@ -981,7 +981,7 @@ namespace cytnx {
     @details This function will take power p on all the elements in UniTensor.
     @param[in] Tin the input UniTensor
     @param[in] p the power
-    @pre If \p Tin is a real UniTensor and containt negative elements,
+    @pre If \p Tin is a real UniTensor and contains negative elements,
     then \p p must be an integer.
     @return UniTensor with the same shape as Tin, but with the elements are the power of Tin.
     @note Compare to the Pow_(UniTensor &Tin, const double &p) function, this
@@ -995,7 +995,7 @@ namespace cytnx {
      * @details This function will take power p on all the elements in UniTensor, inplacely.
      * @param[in,out] Tin the input UniTensor
      * @param[in] p the power
-     * @pre If \p Tin is a real UniTensor and containt negative elements,
+     * @pre If \p Tin is a real UniTensor and contains negative elements,
      * then \p p must be an integer.
      * @note Compare to the Pow function, this is an inplacely function, which
      * will modify the input UniTensor.
@@ -1702,7 +1702,7 @@ namespace cytnx {
     @parblock
     [std::vector<Tensors>]
 
-    1. The first tensor is a 1-d tensor contaning the singular values
+    1. The first tensor is a 1-d tensor containing the singular values
     2. If \p is_U is true, then the tensor \f$ U \f$ will be pushed back to the vector, and if \p
     is_vT is true, \f$ V^\dagger \f$ will be pushed back to the vector.
     @endparblock
@@ -1881,7 +1881,7 @@ namespace cytnx {
     std::vector<Tensor> Hosvd(
       const Tensor &Tin, const std::vector<cytnx_uint64> &mode, const bool &is_core = true,
       const bool &is_Ls = false,
-      const std::vector<cytnx_int64> &trucate_dim = std::vector<cytnx_int64>());
+      const std::vector<cytnx_int64> &truncate_dim = std::vector<cytnx_int64>());
 
     // Qr:
     //==================================================
@@ -1949,7 +1949,7 @@ namespace cytnx {
 
     @param[in] Tin a \link cytnx::Tensor Tensor \endlink, it should be a rank-2 tensor (matrix)
     @param[in] is_V whether need to return the eigen vectors.
-    @param[in] row_V if set to ture, the return eigen vectors will be row form.
+    @param[in] row_V if set to true, the return eigen vectors will be row form.
     @return [std::vector<Tensors>], the first tensor is the eigen values, a 1-d tensor (vector).
     The second tensor is the eigen vectors, a 2-d tensor (matrix). This tensor will only return when
     \p is_V = @em true. Furthermore, if \p row_V = @em true, then the eigen vectors will be row
@@ -1978,7 +1978,7 @@ namespace cytnx {
 
     @param[in] Tin A square matrix (a rank-2 Tensor)
     @param[in] is_V whether need to return the eigen vectors.
-    @param[in] row_V if set to ture, the return eigen vectors will be row form.
+    @param[in] row_V if set to true, the return eigen vectors will be row form.
     @return [std::vector<Tensors>], the first tensor is the eigen values, a 1-d tensor (vector).
     The second tensor is the eigen vectors, a 2-d tensor (matrix). This tensor will only return when
     \p is_V = @em true. Furthermore, if \p row_V = @em true, then the eigen vectors will be row
@@ -2177,7 +2177,7 @@ namespace cytnx {
     @brief inplace perform Exponential on all the element in Tensor.
     @details This function will perform Exponential on all the elements in Tensor \p Tin.
     Furthermore,
-        1. on return, the elements in Tin will be modified to it's exponetial value.
+        1. on return, the elements in Tin will be modified to it's exponential value.
         2. For Real, if the type is not Double, change the type of the input tensor to Double.
         3. For Complex, if input is ComplexFloat, promote to ComplexDouble.
     @param[in] Tin, the input Tensor.
@@ -2188,7 +2188,7 @@ namespace cytnx {
     @brief inplace perform Exponential on all the element in Tensor.
     @details This function will perform Exponential on all the elements in Tensor \p Tin.
     Furthermore,
-        1. on return, the elements in Tin will be modified to it's exponetial value.
+        1. on return, the elements in Tin will be modified to it's exponential value.
         2. For Real, if the type is not Float, change the type of the input tensor to Float.
         3. For Complex, if input is ComplexDouble, promote to ComplexFloat.
     @param[in] Tin, the input Tensor.
@@ -2280,7 +2280,7 @@ namespace cytnx {
     @param[in] Tr Tensor #2
     @param[in] idxl the indices of rank of Tensor #1 that is going to sum with Tensor #2
     @param[in] idxr the indices of rank of Tensor #2 that is going to sum with Tensor #1
-    @param[in] diag_L if Tl(true)/Tr(false) is a diagnal matrix, represented by a rank-1 tensor.
+    @param[in] diag_L if Tl(true)/Tr(false) is a diagonal matrix, represented by a rank-1 tensor.
     @return
         [Tensor]
 
@@ -2388,7 +2388,7 @@ namespace cytnx {
     // Tridiag:
     //===========================================
     /**
-    @brief perform diagonalization of symmetric tri-diagnoal matrix.
+    @brief perform diagonalization of symmetric tri-diagonal matrix.
     @param[in] Diag Tensor #1
     @param[in] Sub_diag Tensor #2
     @param[in] is_V: if calculate the eigen value.
@@ -2504,7 +2504,7 @@ namespace cytnx {
     @return A `std::vector<Tensor>` containing: The first `Tensor` holds the computed eigenvalues.
     If `is_V` is true, subsequent `Tensor` objects contain the corresponding eigenvectors.
     @pre
-    1. The data type of LinOp should be float and same as input inital vector.
+    1. The data type of LinOp should be float and same as input initial vector.
     2. 1 <= `k` <= nx. Where nx is the dimension of the vector.
     3. `Tin` should be a rank-1 Tensor, and the dimension need to same as LinOp->nx().
     4. If `ncv` \f$ \neq 0\f$, then k+2<= `ncv`<= dim, where dim = LinOp->nx().
@@ -2560,7 +2560,7 @@ namespace cytnx {
 
   @pre
    1. The initial UniTensor cannot be empty.
-   2. The data type of LinOp should be float and same as input inital vector.
+   2. The data type of LinOp should be float and same as input initial vector.
    3. 1 <= `k` <= nx. Where nx is the dimension of the vector.
    4. `Tin` should be a rank-1 Tensor, and the dimension need to same as LinOp->nx().
    5. If `ncv` \f$ \neq 0\f$, then k+2<= `ncv`<= dim, where dim = LinOp->nx().
@@ -2604,7 +2604,7 @@ namespace cytnx {
     @endparblock
 
     @param[in] CvgCrit the convergence criterion of the energy.
-    @param[in] maxiter the maximum interation steps for each k.
+    @param[in] maxiter the maximum iteration steps for each k.
     @param[in] k the number of lowest k eigen values.
     @param[in] is_V if set to true, the eigen vectors will be returned.
     @param[in] is_row whether the return eigen vectors should be in row-major form.
@@ -2648,7 +2648,7 @@ namespace cytnx {
         [eigvals (Tensor), eigvecs (Tensor)(option)]
 
   @pre
-   1. The data type of LinOp should be float and same as input inital vector.
+   1. The data type of LinOp should be float and same as input initial vector.
    2. 1 <= `k` <= nx. Where nx is the dimension of the vector.
    3. `Tin` should be a rank-1 Tensor, and the dimension need to same as LinOp->nx().
    4. If `ncv` \f$ \neq 0\f$, then k+2<= `ncv`<= dim, where dim = LinOp->nx().
@@ -2695,7 +2695,7 @@ namespace cytnx {
 
   @pre
    1. The initial UniTensor cannot be empty.
-   2. The data type of LinOp should be float and same as input inital vector.
+   2. The data type of LinOp should be float and same as input initial vector.
    3. 1 <= `k` <= nx. Where nx is the dimension of the vector.
    4. `Tin` should be a rank-1 Tensor, and the dimension need to same as LinOp->nx().
    5. If `ncv` \f$ \neq 0\f$, then k+2<= `ncv`<= dim, where dim = LinOp->nx().
@@ -2735,7 +2735,7 @@ namespace cytnx {
     @endparblock
 
     @param[in] CvgCrit the convergence criterion of the energy.
-    @param[in] maxiter the maximum interation steps for each k.
+    @param[in] maxiter the maximum iteration steps for each k.
     @param[in] k the number of lowest k eigen values.
     @param[in] is_V if set to true, the eigen vectors will be returned.
     @param[in] is_row whether the return eigen vectors should be in row-major form.
@@ -2768,7 +2768,7 @@ namespace cytnx {
     @param[in] Hop the Linear Operator defined by LinOp class or it's inheritance (see LinOp).
     @param[in] k the number of lowest k eigen values.
     @param[in] is_V if set to true, the eigen vectors will be returned.
-    @param[in] maxiter the maximum interation steps for each k.
+    @param[in] maxiter the maximum iteration steps for each k.
     @param[in] CvgCrit the convergence criterion of the energy.
     @param[in] is_row whether the return eigen vectors should be in row-major form.
     @param[in] Tin the initial vector, this should be rank-1
@@ -2799,7 +2799,7 @@ namespace cytnx {
     @param[in] is_V if set to true, the eigen vectors will be returned.
     @param[in] Tin the initial vector, this should be rank-1
     @param[in] verbose print out iteration info.
-    @param[in] maxiter the maximum interation steps for each k.
+    @param[in] maxiter the maximum iteration steps for each k.
     @return
         [eigvals (Tensor), eigvecs (Tensor)(option)]
     @note
@@ -2824,7 +2824,7 @@ namespace cytnx {
     @param[in] is_V if set to true, the eigen vectors will be returned.
     @param[in] Tin the initial vector, this should be a UniTensor.
     @param[in] verbose print out iteration info.
-    @param[in] maxiter the maximum interation steps for each k.
+    @param[in] maxiter the maximum iteration steps for each k.
     @return
         [eigvals (UniTensor::Dense), eigvecs (UniTensor)(option)]
     @note
@@ -2856,7 +2856,7 @@ namespace cytnx {
     @param[in] v The input vector (or state). The norm \f$|v|\f$ should be equal to 1.
     @param[in] tau A scalar, it can be complex number.
     @param[in] CvgCrit \f$\delta\f$, the convergence criterion.
-    @param[in] Maxiter the maximum interation steps for each k.
+    @param[in] Maxiter the maximum iteration steps for each k.
     @param[in] verbose print out iteration info.
     @return
         UniTensor \f$w\f$
@@ -2865,7 +2865,7 @@ namespace cytnx {
     create a class that inherit LinOp (see LinOp for further details)
         @warning
                 User need to guarantee that the input operator \f$H\f$ is Hermitian
-    , and the exponetiate \f$e^{-H\tau}\f$ will converged. Ohterwise, the function will return the
+    , and the exponetiate \f$e^{-H\tau}\f$ will converged. Otherwise, the function will return the
     wrong results without any warning.
     */
     UniTensor Lanczos_Exp(LinOp *Hop, const cytnx::UniTensor &v, const Scalar &tau,
@@ -2877,7 +2877,7 @@ namespace cytnx {
     /**
     @brief Return the least-squares solution to a linear matrix equation.
     @details
-        Computes the vector x that approximatively solves the equation A @ x = b. The equation may
+        Computes the vector x that approximately solves the equation A @ x = b. The equation may
     be under-, well-, or over-determined independent columns. If a is square and of full rank, then
     x (but for round-off error) is the "exact" solution of the equation. Else, x minimizes the
     Euclidean 2-norm \f$ || b - a x ||_2 \f$.

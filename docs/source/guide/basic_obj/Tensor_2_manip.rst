@@ -53,7 +53,7 @@ Thus, we see that using the underscore version modifies the original Tensor itse
 
 .. Note::
 
-    In general, all the funcions in Cytnx that end with an underscore _ are either inplace functions that modify the instance that calls it, or return a reference of some class member.
+    In general, all the functions in Cytnx that end with an underscore _ are either inplace functions that modify the instance that calls it, or return a reference of some class member.
 
 .. Hint::
 

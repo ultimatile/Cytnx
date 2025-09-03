@@ -63,7 +63,7 @@ namespace SvdTest {
   /*=====test info=====
   describe:Test U1 symmetry tensor.
   input:
-    T:Tensor with U1 symmetry (Double and ComplexDoubel).
+    T:Tensor with U1 symmetry (Double and ComplexDoublel).
     is_U:true
     is_VT:true
   ====================*/
@@ -80,7 +80,7 @@ namespace SvdTest {
   /*=====test info=====
   describe:Test Z2 symmetry tensor.
   input:
-    T:Tensor with Z2 symmetry (Double and ComplexDoubel).
+    T:Tensor with Z2 symmetry (Double and ComplexDoublel).
     is_U:true
     is_VT:true
   ====================*/
@@ -96,7 +96,7 @@ namespace SvdTest {
   /*=====test info=====
   describe:Test Z3 symmetry tensor.
   input:
-    T:Tensor with Z3 symmetry (Double and ComplexDoubel).
+    T:Tensor with Z3 symmetry (Double and ComplexDoublel).
     is_U:true
     is_VT:true
   ====================*/
@@ -252,7 +252,7 @@ namespace SvdTest {
   }
 
   /*=====test info=====
-  describe:eror test. Test input the symmetric UniTensor with dtype is bool type.
+  describe:error test. Test input the symmetric UniTensor with dtype is bool type.
   input:
     T:bool type symmetric UniTensor.
     is_U:true
@@ -285,7 +285,7 @@ namespace SvdTest {
   }
 
   /*=====test info=====
-  describe:eror test. Test input Void type UniTensor.
+  describe:error test. Test input Void type UniTensor.
   input:
     T:Void UniTensor.
   ====================*/

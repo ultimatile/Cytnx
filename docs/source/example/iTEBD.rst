@@ -2,7 +2,7 @@ iTEBD
 ------------
 **By : Ke Hsu, Kai-Hsin Wu**
 
-Time evolution block decimation is one of the most simple and sucessful Tensor network method :cite:`itebd-vidal`. The core concept of this algorithm is to use the imaginary time evolution to find the best variational ansatz, usually in terms of Matrix product state (MPS).
+Time evolution block decimation is one of the most simple and successful Tensor network method :cite:`itebd-vidal`. The core concept of this algorithm is to use the imaginary time evolution to find the best variational ansatz, usually in terms of Matrix product state (MPS).
 
 
 Here, we use a 1D transverse field Ising model (TFIM) as a simple example to show how to implement iTEBD algorithm in Cytnx and get the infinite system size (variational) ground state.
@@ -276,8 +276,8 @@ Output>>
 .. Note::
 
     1. Since :math:`U_a` and :math:`U_b` have the same content(matrix elements) but acting on different sites, we only need to define a single UniTensor.
-    2. Here as a simple example, we directly convert a **cytnx.Tensor** to **cytnx.UniTensor**, which we don't impose any bra-ket constrain (direction of bonds). In general, it is also possible to give bond direction (which we refering to *tagged*) that constrain the bonds to be more physical. See Github example/iTEBD/iTEBD_tag.py for demonstration.
-    3. In general, the accurate ground state can be acquired with a higher order Trotter-Suzuki expansion, and with decreasing :math:`\delta \tau` along the iteraction. (See :cite:`itebd-vidal` for further details), Here, for demonstration, we use fixed value of :math:`\delta \tau`.
+    2. Here as a simple example, we directly convert a **cytnx.Tensor** to **cytnx.UniTensor**, which we don't impose any bra-ket constrain (direction of bonds). In general, it is also possible to give bond direction (which we referring to *tagged*) that constrain the bonds to be more physical. See Github example/iTEBD/iTEBD_tag.py for demonstration.
+    3. In general, the accurate ground state can be acquired with a higher order Trotter-Suzuki expansion, and with decreasing :math:`\delta \tau` along the iteration. (See :cite:`itebd-vidal` for further details), Here, for demonstration, we use fixed value of :math:`\delta \tau`.
 
 .. Tip::
 
@@ -286,7 +286,7 @@ Output>>
 
 Update procedure
 ******************
-Now we have prepared the initial trial wavefunction in terms of MPS with two sites unit cell and the time evolution operator, we are ready to use the aformentioned scheme to find the (variational) ground state MPS.
+Now we have prepared the initial trial wavefunction in terms of MPS with two sites unit cell and the time evolution operator, we are ready to use the aforementioned scheme to find the (variational) ground state MPS.
 At the beginning of each iteration, we evaluate the energy expectation value :math:`\langle \psi | H | \psi  \rangle / \langle \psi | \psi  \rangle`, and check the convergence, the network is straightforward:
 
 
@@ -419,13 +419,13 @@ Note that we directly store the SVD results into A, B and la, this can be seen b
     :width: 500
     :align: center
 
-to recover to orignial form, we put :math:`\lambda_B^{-1} \lambda_B` on both ends, which abosorb two :math:`\lambda_B^{-1}`:
+to recover to original form, we put :math:`\lambda_B^{-1} \lambda_B` on both ends, which abosorb two :math:`\lambda_B^{-1}`:
 
 .. image:: image/itebd_recover.png
     :width: 500
     :align: center
 
-Now we have the envolved :math:`\Gamma_A`, :math:`\Gamma_B` and :math:`\lambda_A`. Using the translation symmetry, we shift the whole chain to left by just exchange the :math:`Gamma` and :math:`\lambda` pair and arrived at the new MPS for next iteration to update B-A sites using :math:`U_b`.
+Now we have the evolved :math:`\Gamma_A`, :math:`\Gamma_B` and :math:`\lambda_A`. Using the translation symmetry, we shift the whole chain to left by just exchange the :math:`Gamma` and :math:`\lambda` pair and arrived at the new MPS for next iteration to update B-A sites using :math:`U_b`.
 
 .. image:: image/itebd_translation.png
     :width: 300

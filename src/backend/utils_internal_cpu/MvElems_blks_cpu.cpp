@@ -48,7 +48,7 @@ namespace cytnx {
                             c2cartesian(src_inner2outer_col[b][j], acc_out_old));
           tfidx = vec_map(tfidx, mapper);  // convert to new index
 
-          // caluclate new row col index:
+          // calculate new row col index:
           cytnx_uint64 new_row = 0, new_col = 0;
           cytnx_uint64 buff = 1;
           for (unsigned int k = 0; k < src_shape.size() - dest_rowrank; k++) {

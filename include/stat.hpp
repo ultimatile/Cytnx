@@ -206,7 +206,7 @@ namespace cytnx {
     };  // class histogram
 
     // function, statistical:
-    // class Boostrap{
+    // class Bootstrap{
 
     //};//class bootstrap
 

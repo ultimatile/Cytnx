@@ -368,7 +368,7 @@ namespace cytnx {
 
       // std::cout << get_shape << endl;
 
-      // permute input to currect pos
+      // permute input to correct pos
       std::vector<cytnx_int64> new_mapper(this->_mapper.begin(), this->_mapper.end());
       std::vector<cytnx_uint64> new_shape;
       std::vector<cytnx_int32> remove_id;

@@ -146,7 +146,7 @@ namespace cytnx {
       // initialize everything
       // 1. setting env:
 
-      // Initialiaze enviroment:
+      // Initialize environment:
       auto L0 =
         UniTensor(cytnx::zeros({this->mpo.get_op(0).shape()[0], 1, 1}), false, 0);  // Left boundary
       auto R0 = UniTensor(cytnx::zeros({this->mpo.get_op(this->mps.size() - 1).shape()[1], 1, 1}),

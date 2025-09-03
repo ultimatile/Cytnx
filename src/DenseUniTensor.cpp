@@ -99,7 +99,7 @@ namespace cytnx {
     } else {
       // check bonds & labels dim
       cytnx_error_msg(bonds.size() != in_labels.size(), "%s",
-                      "[ERROR] labels must have same lenth as # of bonds.");
+                      "[ERROR] labels must have same length as # of bonds.");
 
       std::vector<std::string> tmp = vec_unique(in_labels);
       cytnx_error_msg(tmp.size() != in_labels.size(),
@@ -109,11 +109,11 @@ namespace cytnx {
 
     if (is_diag) {
       cytnx_error_msg(bonds.size() != 2,
-                      "[ERROR] is_diag= ture should have the shape for initializing the UniTensor "
+                      "[ERROR] is_diag = true should have the shape for initializing the UniTensor "
                       "is square, 2-rank tensor.%s",
                       "\n");
       cytnx_error_msg(bonds[0].dim() != bonds[1].dim(),
-                      "[ERROR] is_diag= ture should have the shape for initializing the UniTensor "
+                      "[ERROR] is_diag = true should have the shape for initializing the UniTensor "
                       "is square, 2-rank tensor.%s",
                       "\n");
     }
@@ -1451,7 +1451,7 @@ namespace cytnx {
     } else if (rhs->uten_type() == UTenType.Block) {
       _DN_from_BK(this, (BlockUniTensor *)(rhs.get()), force);
     } else {
-      cytnx_error_msg(true, "[ERROR] unsupport conversion of UniTensor from %s => DenseUniTensor\n",
+      cytnx_error_msg(true, "[ERROR] unsupported conversion of UniTensor from %s => DenseUniTensor\n",
                       UTenType.getname(rhs->uten_type()).c_str());
     }
   }

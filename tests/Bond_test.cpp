@@ -187,7 +187,7 @@ TEST(Bond, Clear_type) {
 //   qnums.push_back(q0);
 //   qnums.push_back(q_1);
 //
-//   // Constrcut Bond with Qnum array
+//   // Construct Bond with Qnum array
 //   Bond bd(uni10::BD_OUT, qnums);
 //
 //   // test dim
@@ -256,7 +256,7 @@ TEST(Bond, Clear_type) {
 //   qnums.push_back(q0);
 //   qnums.push_back(q_1);
 //
-//   // Constrcut first bond
+//   // Construct first bond
 //   uni10::Bond bd(uni10::BD_IN, qnums);
 //
 //   // Construct another bond

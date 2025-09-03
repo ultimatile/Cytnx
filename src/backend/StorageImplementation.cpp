@@ -33,16 +33,16 @@ namespace cytnx {
   template <typename DType>
   void PrintValueAndSpace(std::ostream &os, const DType &value) {
     if constexpr (is_complex_v<DType>) {
-      std::streamsize original_percision = os.precision(5);
+      std::streamsize original_precision = os.precision(5);
       std::ios::fmtflags original_flags = os.flags(std::ios::scientific);
       os << value.real() << std::showpos << value.imag() << "j ";
-      os.precision(original_percision);
+      os.precision(original_precision);
       os.flags(original_flags);
     } else if constexpr (std::is_floating_point_v<DType>) {
-      std::streamsize original_percision = os.precision(5);
+      std::streamsize original_precision = os.precision(5);
       std::ios::fmtflags original_flags = os.flags(std::ios::scientific);
       os << value << " ";
-      os.precision(original_percision);
+      os.precision(original_precision);
       os.flags(original_flags);
     } else if constexpr (std::is_same_v<DType, cytnx_uint64>) {
       os << std::setw(19) << value << " ";

@@ -52,7 +52,7 @@ namespace cytnx {
 
     Qs(const std::vector<cytnx_int64> &qin) { this->tmpQs = qin; }
 
-    // interprete as 2d vector directly implicitly convert!
+    // interpreted as 2d vector directly implicitly convert!
     explicit operator std::vector<cytnx_int64>() const { return this->tmpQs; };
 
     std::pair<std::vector<cytnx_int64>, cytnx_uint64> operator>>(const cytnx_uint64 &dim) {
@@ -65,7 +65,7 @@ namespace cytnx {
    public:
     int stype_id;
     int n;
-    Symmetry_base() : stype_id(SymmetryType::Void){};
+    Symmetry_base() : stype_id(SymmetryType::Void) {};
     Symmetry_base(const int &n) : stype_id(SymmetryType::Void) { this->Init(n); };
     Symmetry_base(const Symmetry_base &rhs);
     Symmetry_base &operator=(const Symmetry_base &rhs);
@@ -77,7 +77,7 @@ namespace cytnx {
 
     cytnx_int64 reverse_rule(const cytnx_int64 &in);
 
-    virtual void Init(const int &n){};
+    virtual void Init(const int &n) {};
     virtual boost::intrusive_ptr<Symmetry_base> clone() { return nullptr; };
     virtual bool check_qnum(
       const cytnx_int64 &in_qnum);  // check the passed in qnums satisfy the symmetry requirement.

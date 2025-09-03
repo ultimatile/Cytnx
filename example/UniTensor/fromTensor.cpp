@@ -20,7 +20,7 @@ int main(int argc, char* argv[]) {
   cout << T << endl;
   cout << CyT << endl;
 
-  // If we want a new instance of memery, use clone at initialize:
+  // If we want a new instance of memory, use clone at initialize:
   cout << "[non-share example]" << endl;
   UniTensor CyT_nonshare = UniTensor(T.clone(), false, 2);
 

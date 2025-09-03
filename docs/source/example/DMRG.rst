@@ -7,9 +7,9 @@ DMRG
 The density matrix renormalization group (DMRG) is one of the powerful algorithm for study quantum systems.
 The algorithm is especially useful in study 1D systems, while the extension to study 2D systems are also possible. The original formulation :cite:`whitedmrg` of DMRG is based on the desity matrix, and had been later-on being re-formulated with the concept of matrix product state (MPS) :cite:`SCHOLLWOCK201196`.
 
-In the following, we are going use the MPS language for explaination. There are two important objects Matrix product state (MPS) and Matrix product operator (MPO) which we will explain them in a moment.
+In the following, we are going use the MPS language for explanation. There are two important objects Matrix product state (MPS) and Matrix product operator (MPO) which we will explain them in a moment.
 
-Using 1D spin-1/2 XY model as an example system, we are going to introduce how to use Cytnx to implement the DMRG algorithm, and benchmark our results with the exact analytic solution avaliable via bethe ansatz.
+Using 1D spin-1/2 XY model as an example system, we are going to introduce how to use Cytnx to implement the DMRG algorithm, and benchmark our results with the exact analytic solution available via bethe ansatz.
 
 The model-- XY chain
 ****************************************
@@ -32,7 +32,7 @@ Basic components
 
 1. Matrix product state (MPS):
 
-   Our major goal in this example is, of course, to get the ground state. The state :math:`|\Psi>` is represent in terms of the MPS, which is variational wave function written in an effieient way to represent a many-body wave function. The tensor notation are shown in following figure (a)
+   Our major goal in this example is, of course, to get the ground state. The state :math:`|\Psi>` is represent in terms of the MPS, which is variational wave function written in an efficient way to represent a many-body wave function. The tensor notation are shown in following figure (a)
 
 
 2. Matrix product operator (MPO):
@@ -70,7 +70,7 @@ with the left and right boundary:
 
 
 
-which is shown in the following figure (b). One can easily verify that succesive product of number of **M** operators  along with the left and right boundaries gives the desire Hamitonian of the model.
+which is shown in the following figure (b). One can easily verify that successive product of number of **M** operators along with the left and right boundaries gives the desire Hamitonian of the model.
 
 .. image:: image/MPSMPO.png
     :width: 400
@@ -179,7 +179,7 @@ Output >>
                 -------------
 
 
-Preparing the MPS and enviroments
+Preparing the MPS and environments
 ***********************************
 
 Next, we are going to prepare our variational ansatz (MPS). Here, **chi** is the *virtual bond* dimension, and **Nsites** is the number of sites.
@@ -196,7 +196,7 @@ Next, we are going to prepare our variational ansatz (MPS). Here, **chi** is the
     A = [None for i in range(Nsites)]
     A[0] = cytnx.UniTensor(cytnx.random.normal([1, d, min(chi, d)], 0., 1.), rowrank = 2)
     A[0].relabels_(["0","1","2"])
-    lbls.append(["0","1","2"]) # store the labels for later convinience.
+    lbls.append(["0","1","2"]) # store the labels for later convenience.
 
     for k in range(1,Nsites):
         dim1 = A[k-1].shape()[2]; dim2 = d
@@ -205,7 +205,7 @@ Next, we are going to prepare our variational ansatz (MPS). Here, **chi** is the
 
         lbl = [str(2*k),str(2*k+1),str(2*k+2)]
         A[k].relabels_(lbl)
-        lbls.append(lbl) # store the labels for later convinience.
+        lbls.append(lbl) # store the labels for later convenience.
 
 
 The resulting MPS would look like a tensor train, stored in the list A:
@@ -214,7 +214,7 @@ The resulting MPS would look like a tensor train, stored in the list A:
     :width: 400
     :align: center
 
-The dim3 of each tensor may look a little bit tricky, but we are simply comparing the "maximum dimension needed to span the information for the left part" and that of the right part, while we also want the disired dim3 not larger than our bond dimension.
+The dim3 of each tensor may look a little bit tricky, but we are simply comparing the "maximum dimension needed to span the information for the left part" and that of the right part, while we also want the desired dim3 not larger than our bond dimension.
 
 .. Hint::
 
@@ -228,14 +228,14 @@ Here, we do it from left to right, and we decompose each tensor into its U, s an
     :width: 400
     :align: center
 
-The othogonal form of the MPS looks like:
+The orthogonal form of the MPS looks like:
 
 .. image:: image/dmrg3.png
     :width: 400
     :align: center
 
 
-Further more, as a naive implementation, here, at the same time we also store all the *left and right enviroments* **LR**, assocate to each site just for convenience. These include contracting 4 tensors **L**, **M**, **A** and :math:`A^\dagger`.
+Further more, as a naive implementation, here, at the same time we also store all the *left and right environments* **LR**, associate to each site just for convenience. These include contracting 4 tensors **L**, **M**, **A** and :math:`A^\dagger`.
 
 Here, the contraction can be easily performed using **cytnx.Network** with the contraction graph defined by the *network file* (L_AMAH.net) as following:
 
@@ -275,7 +275,7 @@ The full implementation looks like:
         s, A[p] ,vt = cytnx.linalg.Gesvd(A[p])
         A[p+1] = cytnx.Contract(cytnx.Contract(s,vt),A[p+1])
 
-        ## Calculate enviroments:
+        ## Calculate environments:
         anet = cytnx.Network("L_AMAH.net")
         anet.PutUniTensors(["L","A","A_Conj","M"],[LR[p],A[p],A[p].Conj(),M])
         LR[p+1] = anet.Launch()
@@ -344,9 +344,9 @@ There are lots of things happening here, let's break it up a bit, from right to 
     :align: center
 
 
-Generally, the idea is pretty simple, for each local two sites, one contract the left and right enviroments :math:`L_{j}` and :math:`R_{j+3}` with local MPOs :math:`M_{j}` and :math:`M_{j+1}`. We call this the local operator :math:`H_{loc}`.
+Generally, the idea is pretty simple, for each local two sites, one contract the left and right environments :math:`L_{j}` and :math:`R_{j+3}` with local MPOs :math:`M_{j}` and :math:`M_{j+1}`. We call this the local operator :math:`H_{loc}`.
 
-The lowest eigen vector of this operator will be our optimized *local* state, which we call this **psi**. Of course, one can performs eigH directly with this :math:`H_{loc}` to get the local optimized state. However, the computational and memory cost are very high, and it's not pratical to do so espectially when virtual bond dimension is large.
+The lowest eigen vector of this operator will be our optimized *local* state, which we call this **psi**. Of course, one can performs eigH directly with this :math:`H_{loc}` to get the local optimized state. However, the computational and memory cost are very high, and it's not practical to do so espectially when virtual bond dimension is large.
 
 Instead, we use iterative solver (Lanczos method) to get our ground state, and use the **A[p]** and **A[p+1]** as our initial trial state for performing Lanczos with our local operator :math:`H_{loc}`.
 
@@ -372,7 +372,7 @@ which in tensor notation looks like this:
     :align: center
 
 
-To ultilize the Lanczos function, the opertion of acting Hamitonian (which involves contraction using a network) is implemented using LinOp class (See Iterative Solver section for furtuer details).
+To ultilize the Lanczos function, the operation of acting Hamitonian (which involves contraction using a network) is implemented using LinOp class (See Iterative Solver section for furtuer details).
 
 * In Python:
 
@@ -447,7 +447,7 @@ we have to make our psi into the canonical form, for which we do the SVD for the
     :width: 400
     :align: center
 
-remember that the right hand side vTs are obtained after we do the optimization, those are immediately used to calculate the updated right enviroment using the network
+remember that the right hand side vTs are obtained after we do the optimization, those are immediately used to calculate the updated right environment using the network
 
 * R_AMAH.net:
 
@@ -466,7 +466,7 @@ graphically it looks like:
     :width: 470
     :align: center
 
-So our enviroments are also updated by the vT from the optimized two-side states.
+So our environments are also updated by the vT from the optimized two-side states.
 
 .. Hint::
 

@@ -48,7 +48,7 @@ Although this is legit, it will have more overhead than we want. Since lots of m
 The return of **at()** is directly a Scalar. Further more, it has less overhead than **operator()** in the case of single element accessing.
 
 
-* Result for comparing two method on a Tensor with shape(3,4,5), with repeatly 100k times single element accessing:
+* Result for comparing two method on a Tensor with shape(3,4,5), with repeatedly 100k times single element accessing:
 
 .. code-block:: text
 

@@ -64,7 +64,7 @@ namespace cytnx {
   describe:Test all possible data type and check the results.
   input:
     T:Tensor with shape {6, 6} or {2, 2}, {1, 1}, {3, 3}, {4, 4} and test for all
-  possilbe data type.
+  possible data type.
   ====================*/
   TEST(DetGpu, HandleAllDtype) {
     for (auto dtype : dtype_list) {

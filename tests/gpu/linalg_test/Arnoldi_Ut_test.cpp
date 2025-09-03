@@ -198,7 +198,7 @@ TEST(Arnoldi_Ut, gpu_k_large) {
   ExcuteTest(which, mat_type, k);
 }
 
-// 1-9, test the smallest matrix dimenstion.
+// 1-9, test the smallest matrix dimension.
 TEST(Arnoldi_Ut, gpu_smallest_dim) {
   std::string which = "LM";
   auto mat_type = Type.ComplexDouble;

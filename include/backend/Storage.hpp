@@ -75,13 +75,13 @@ namespace cytnx {
 
         intrusive_ptr<Storage> array(new DoubleStorage());
         array->_Init_byptr((void*)cptr,4); // This is fatal, since we alloc cptr as float,
-                                           // but apon free, DoubleStorage will free 2x
+                                           // but upon free, DoubleStorage will free 2x
                                            // of memory!!!!
 
         array->_Init_byptr_safe(cptr,4);   // This is design to avoid the above problem
                                            // by checking the type of input pointer with
                                            // the type of Storage before call _Init_byptr.
-                                           // [Note] this will intorduce overhead!!.
+                                           // [Note] this will introduce overhead!!.
 
     */
     template <class T>
@@ -239,7 +239,7 @@ namespace cytnx {
   class StorageImplementation : public Storage_base {
    public:
     StorageImplementation()
-        : capacity_(0), size_(0), start_(nullptr), dtype_(Type.cy_typeid(DType())), device_(-1){};
+        : capacity_(0), size_(0), start_(nullptr), dtype_(Type.cy_typeid(DType())), device_(-1) {};
     void Init(const unsigned long long &len_in, const int &device = -1,
               const bool &init_zero = true);
     void _Init_byptr(void *rawptr, const unsigned long long &len_in, const int &device = -1,
@@ -433,7 +433,7 @@ namespace cytnx {
   extern Storage_init_interface __SII;
   ///@endcond;
 
-  ///@brief an memeory storage with multi-type/multi-device support
+  ///@brief an memory storage with multi-type/multi-device support
   class Storage {
    private:
     // Interface:
@@ -500,7 +500,7 @@ namespace cytnx {
     /**
      * @brief The default constructor of Storage class. It will create an empty Storage instance.
      */
-    Storage() : _impl(new Storage_base()){};
+    Storage() : _impl(new Storage_base()) {};
     ///@cond
     Storage(boost::intrusive_ptr<Storage_base> in_impl) { this->_impl = in_impl; }
     Storage(const Storage &rhs) { this->_impl = rhs._impl; }
@@ -600,7 +600,7 @@ namespace cytnx {
         1. if the new_type is the same as the dtype of current Storage, then return self;
            otherwise, return a new instance that has the same content as current Storage with
            dtype= \p new_type .
-        2. the return Stoarge will be on the same device as the current Storage.
+        2. the returned Storage will be on the same device as the current Storage.
     @param[in] new_type the new type of the Storage instance. This can be any of type defined in
     cytnx::Type.
     @attention
@@ -703,14 +703,14 @@ namespace cytnx {
     void resize(const cytnx_uint64 &newsize) { this->_impl->resize(newsize); }
 
     /**
-    @brief Move the current Storage to different deivce.
+    @brief Move the current Storage to different device.
     @param[in] device the device-id. It can be any device defined in cytnx::Device.
     @see Storage::to()
     */
     void to_(const int &device) { this->_impl->to_(device); }
 
     /**
-    @brief move a new Storage with same content as current Storage on different deivce.
+    @brief move a new Storage with same content as current Storage on different device.
     @param[in] device the device-id. It can be any device defined in cytnx::Device
     @note
         if the \p device is the same as the current Storage's device, return self.
@@ -868,7 +868,7 @@ namespace cytnx {
     void _from_vector(const std::vector<T> &vin, const int device = -1) {
       // auto dispatch:
       // check:
-      cytnx_error_msg(1, "[FATAL] ERROR unsupport type%s", "\n");
+      cytnx_error_msg(1, "[FATAL] ERROR unsupported type%s", "\n");
       // this->_impl->Init(vin.size(),device);
       // memcpy(this->_impl->data(),&vin[0],sizeof(T)*vin.size());
     }

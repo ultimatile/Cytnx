@@ -72,7 +72,7 @@ Ta_add = Ta + 3.
 Ta_add_2 = 3. + Ta
 
 # now all the arithmetic require contiguous call.
-# it will becomes implicity in later version.
+# it will become implicit in later version.
 Ta.contiguous_()
 
 Ta_add_3 = Ta + Ta

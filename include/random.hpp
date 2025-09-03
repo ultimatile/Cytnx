@@ -30,12 +30,12 @@ namespace cytnx {
     // normal_:
     //--------------------------------------------------
     /**
-    @brief Randomize the memory of a Storage with normal distributon
+    @brief Randomize the memory of a Storage with normal distribution
     @param[in] Sin a Storage
     @param[in] mean the mean of a normal distribution
     @param[in] std the standard deviation \f$ \sigma \f$ of a normal distribution.
     @param[in] seed the seed for the random generator. [Default] Using device entropy.
-    @note The Storage sould be real floating type or complex type.
+    @note The Storage should be real floating type or complex type.
     */
     void normal_(cytnx::Storage &Sin, const double &mean, const double &std,
                  const unsigned int &seed = __static_random_device());
@@ -43,13 +43,13 @@ namespace cytnx {
     // uniform_:
     //--------------------------------------------------
     /**
-    @brief Randomize the memory of a Storage with uniform distributon
+    @brief Randomize the memory of a Storage with uniform distribution
     @param[in] Sin a Storage
     @param[in] low the lower-bound of the uniform distribution
     @param[in] high the higher-bound of the uniform distribution
     @param[in] seed the seed for the random generator. [Default] Using device entropy.
     @note
-        1. The Storage sould be real floating type or complex type.
+        1. The Storage should be real floating type or complex type.
         2. In cpu, it generate random number in domain [low,high); but in gpu(cuda), it generate
         random number in domain (low,high]; (cuRandv10)
     */
@@ -62,12 +62,12 @@ namespace cytnx {
     // normal_:
     //-------------------------------------------------
     /**
-    @brief Randomize the memory of a Tensor with normal distributon
+    @brief Randomize the memory of a Tensor with normal distribution
     @param[in] Tin a Tensor
     @param[in] mean the mean of a normal distribution
     @param[in] std the standard deviation \f$ \sigma \f$ of a normal distribution.
     @param[in] seed the seed for the random generator. [Default] Using device entropy.
-    @note The Tensor sould be real floating type or complex type.
+    @note The Tensor should be real floating type or complex type.
     */
     void normal_(cytnx::Tensor &Tin, const double &mean, const double &std,
                  const unsigned int &seed = __static_random_device());
@@ -75,13 +75,13 @@ namespace cytnx {
     // uniform_:
     //--------------------------------------------------
     /**
-    @brief Randomize the memory of a Tensor with uniform distributon
+    @brief Randomize the memory of a Tensor with uniform distribution
     @param[in] Tin a Tensor
     @param[in] low the lower-bound of the uniform distribution
     @param[in] high the higher-bound of the uniform distribution
     @param[in] seed the seed for the random generator. [Default] Using device entropy.
     @note
-        1. The Tensor sould be real floating type or complex type.
+        1. The Tensor should be real floating type or complex type.
         2. In cpu, it generate random number in domain [low,high); but in gpu(cuda), it generate
         random number in domain (low,high]; (cuRandv10)
 
@@ -95,12 +95,12 @@ namespace cytnx {
     // normal_:
     //-------------------------------------------------
     /**
-    @brief Randomize the memory of a UniTensor with normal distributon
+    @brief Randomize the memory of a UniTensor with normal distribution
     @param[in] Tin a UniTensor
     @param[in] mean the mean of a normal distribution
     @param[in] std the standard deviation \f$ \sigma \f$ of a normal distribution.
     @param[in] seed the seed for the random generator. [Default] Using device entropy.
-    @note The UniTensor sould be real floating type or complex type.
+    @note The UniTensor should be real floating type or complex type.
     */
     void normal_(cytnx::UniTensor &Tin, const double &mean, const double &std,
                  const unsigned int &seed = __static_random_device());
@@ -108,13 +108,13 @@ namespace cytnx {
     // uniform_:
     //--------------------------------------------------
     /**
-    @brief Randomize the memory of a UniTensor with uniform distributon
+    @brief Randomize the memory of a UniTensor with uniform distribution
     @param[in] Tin a UniTensor
     @param[in] low the lower-bound of the uniform distribution
     @param[in] high the higher-bound of the uniform distribution
     @param[in] seed the seed for the random generator. [Default] Using device entropy.
     @note
-        1. The UniTensor sould be real floating type or complex type.
+        1. The UniTensor should be real floating type or complex type.
         2. In cpu, it generate random number in domain [low,high); but in gpu(cuda), it generate
         random number in domain (low,high]; (cuRandv10)
     */

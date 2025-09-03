@@ -36,7 +36,7 @@ namespace cytnx {
                       "[ERROR][SparseUniTensor] All bonds must have dimension >=1%s", "\n");
       // check symmetry and type:
       cytnx_error_msg(bonds[i].Nsym() != N_symmetry,
-                      "[ERROR][SparseUniTensor] inconsistant # of symmetry at bond: %d. # of "
+                      "[ERROR][SparseUniTensor] inconsistent # of symmetry at bond: %d. # of "
                       "symmetry should be %d\n",
                       i, N_symmetry);
       for (cytnx_uint32 n = 0; n < N_symmetry; n++) {
@@ -70,7 +70,7 @@ namespace cytnx {
     } else {
       // check bonds & labels dim
       cytnx_error_msg(bonds.size() != in_labels.size(), "%s",
-                      "[ERROR] labels must have same lenth as # of bonds.");
+                      "[ERROR] labels must have same length as # of bonds.");
 
       std::vector<string> tmp = vec_unique(in_labels);
       cytnx_error_msg(tmp.size() != in_labels.size(),
@@ -932,7 +932,7 @@ namespace cytnx {
                       "[ERROR][SparseUniTensor][at] locator @index: %d out of range.\n", i);
     }
 
-    // 2. calculate the location in real memory using meta datas.
+    // 2. calculate the location in real memory using metadata.
     std::vector<cytnx_uint64> ij =
       _locator_to_inner_ij(locator, this->shape(), this->_inner_rowrank, this->_inv_mapper);
     cytnx_uint64 &i = ij[0];
@@ -964,7 +964,7 @@ namespace cytnx {
                       "[ERROR][SparseUniTensor][at] locator @index: %d out of range.\n", i);
     }
 
-    // 2. calculate the location in real memory using meta datas.
+    // 2. calculate the location in real memory using metadata.
     std::vector<cytnx_uint64> ij =
       _locator_to_inner_ij(locator, this->shape(), this->_inner_rowrank, this->_inv_mapper);
     cytnx_uint64 &i = ij[0];
@@ -997,7 +997,7 @@ namespace cytnx {
                       "[ERROR][SparseUniTensor][at] locator @index: %d out of range.\n", i);
     }
 
-    // 2. calculate the location in real memory using meta datas.
+    // 2. calculate the location in real memory using metadata.
     std::vector<cytnx_uint64> ij =
       _locator_to_inner_ij(locator, this->shape(), this->_inner_rowrank, this->_inv_mapper);
     cytnx_uint64 &i = ij[0];
@@ -1030,7 +1030,7 @@ namespace cytnx {
                       "[ERROR][SparseUniTensor][at] locator @index: %d out of range.\n", i);
     }
 
-    // 2. calculate the location in real memory using meta datas.
+    // 2. calculate the location in real memory using metadata.
     std::vector<cytnx_uint64> ij =
       _locator_to_inner_ij(locator, this->shape(), this->_inner_rowrank, this->_inv_mapper);
     cytnx_uint64 &i = ij[0];
@@ -1065,7 +1065,7 @@ namespace cytnx {
                       "[ERROR][SparseUniTensor][at] locator @index: %d out of range.\n", i);
     }
 
-    // 2. calculate the location in real memory using meta datas.
+    // 2. calculate the location in real memory using metadata.
     std::vector<cytnx_uint64> ij =
       _locator_to_inner_ij(locator, this->shape(), this->_inner_rowrank, this->_inv_mapper);
     cytnx_uint64 &i = ij[0];
@@ -1097,7 +1097,7 @@ namespace cytnx {
                       "[ERROR][SparseUniTensor][at] locator @index: %d out of range.\n", i);
     }
 
-    // 2. calculate the location in real memory using meta datas.
+    // 2. calculate the location in real memory using metadata.
     std::vector<cytnx_uint64> ij =
       _locator_to_inner_ij(locator, this->shape(), this->_inner_rowrank, this->_inv_mapper);
     cytnx_uint64 &i = ij[0];
@@ -1130,7 +1130,7 @@ namespace cytnx {
                       "[ERROR][SparseUniTensor][at] locator @index: %d out of range.\n", i);
     }
 
-    // 2. calculate the location in real memory using meta datas.
+    // 2. calculate the location in real memory using metadata.
     std::vector<cytnx_uint64> ij =
       _locator_to_inner_ij(locator, this->shape(), this->_inner_rowrank, this->_inv_mapper);
     cytnx_uint64 &i = ij[0];
@@ -1162,7 +1162,7 @@ namespace cytnx {
                       "[ERROR][SparseUniTensor][at] locator @index: %d out of range.\n", i);
     }
 
-    // 2. calculate the location in real memory using meta datas.
+    // 2. calculate the location in real memory using metadata.
     std::vector<cytnx_uint64> ij =
       _locator_to_inner_ij(locator, this->shape(), this->_inner_rowrank, this->_inv_mapper);
     cytnx_uint64 &i = ij[0];
@@ -1195,7 +1195,7 @@ namespace cytnx {
                       "[ERROR][SparseUniTensor][at] locator @index: %d out of range.\n", i);
     }
 
-    // 2. calculate the location in real memory using meta datas.
+    // 2. calculate the location in real memory using metadata.
     std::vector<cytnx_uint64> ij =
       _locator_to_inner_ij(locator, this->shape(), this->_inner_rowrank, this->_inv_mapper);
     cytnx_uint64 &i = ij[0];
@@ -1227,7 +1227,7 @@ namespace cytnx {
                       "[ERROR][SparseUniTensor][at] locator @index: %d out of range.\n", i);
     }
 
-    // 2. calculate the location in real memory using meta datas.
+    // 2. calculate the location in real memory using metadata.
     std::vector<cytnx_uint64> ij =
       _locator_to_inner_ij(locator, this->shape(), this->_inner_rowrank, this->_inv_mapper);
     cytnx_uint64 &i = ij[0];
@@ -1260,7 +1260,7 @@ namespace cytnx {
                       "[ERROR][SparseUniTensor][at] locator @index: %d out of range.\n", i);
     }
 
-    // 2. calculate the location in real memory using meta datas.
+    // 2. calculate the location in real memory using metadata.
     std::vector<cytnx_uint64> ij =
       _locator_to_inner_ij(locator, this->shape(), this->_inner_rowrank, this->_inv_mapper);
     cytnx_uint64 &i = ij[0];
@@ -1292,7 +1292,7 @@ namespace cytnx {
                       "[ERROR][SparseUniTensor][at] locator @index: %d out of range.\n", i);
     }
 
-    // 2. calculate the location in real memory using meta datas.
+    // 2. calculate the location in real memory using metadata.
     std::vector<cytnx_uint64> ij =
       _locator_to_inner_ij(locator, this->shape(), this->_inner_rowrank, this->_inv_mapper);
     cytnx_uint64 &i = ij[0];
@@ -1325,7 +1325,7 @@ namespace cytnx {
                       "[ERROR][SparseUniTensor][at] locator @index: %d out of range.\n", i);
     }
 
-    // 2. calculate the location in real memory using meta datas.
+    // 2. calculate the location in real memory using metadata.
     std::vector<cytnx_uint64> ij =
       _locator_to_inner_ij(locator, this->shape(), this->_inner_rowrank, this->_inv_mapper);
     cytnx_uint64 &i = ij[0];
@@ -1357,7 +1357,7 @@ namespace cytnx {
                       "[ERROR][SparseUniTensor][at] locator @index: %d out of range.\n", i);
     }
 
-    // 2. calculate the location in real memory using meta datas.
+    // 2. calculate the location in real memory using metadata.
     std::vector<cytnx_uint64> ij =
       _locator_to_inner_ij(locator, this->shape(), this->_inner_rowrank, this->_inv_mapper);
     cytnx_uint64 &i = ij[0];
@@ -1390,7 +1390,7 @@ namespace cytnx {
                       "[ERROR][SparseUniTensor][at] locator @index: %d out of range.\n", i);
     }
 
-    // 2. calculate the location in real memory using meta datas.
+    // 2. calculate the location in real memory using metadata.
     std::vector<cytnx_uint64> ij =
       _locator_to_inner_ij(locator, this->shape(), this->_inner_rowrank, this->_inv_mapper);
     cytnx_uint64 &i = ij[0];
@@ -1422,7 +1422,7 @@ namespace cytnx {
                       "[ERROR][SparseUniTensor][at] locator @index: %d out of range.\n", i);
     }
 
-    // 2. calculate the location in real memory using meta datas.
+    // 2. calculate the location in real memory using metadata.
     std::vector<cytnx_uint64> ij =
       _locator_to_inner_ij(locator, this->shape(), this->_inner_rowrank, this->_inv_mapper);
     cytnx_uint64 &i = ij[0];
@@ -1455,7 +1455,7 @@ namespace cytnx {
                       "[ERROR][SparseUniTensor][at] locator @index: %d out of range.\n", i);
     }
 
-    // 2. calculate the location in real memory using meta datas.
+    // 2. calculate the location in real memory using metadata.
     std::vector<cytnx_uint64> ij =
       _locator_to_inner_ij(locator, this->shape(), this->_inner_rowrank, this->_inv_mapper);
     cytnx_uint64 &i = ij[0];
@@ -1487,7 +1487,7 @@ namespace cytnx {
                       "[ERROR][SparseUniTensor][at] locator @index: %d out of range.\n", i);
     }
 
-    // 2. calculate the location in real memory using meta datas.
+    // 2. calculate the location in real memory using metadata.
     std::vector<cytnx_uint64> ij =
       _locator_to_inner_ij(locator, this->shape(), this->_inner_rowrank, this->_inv_mapper);
     cytnx_uint64 &i = ij[0];
@@ -1520,7 +1520,7 @@ namespace cytnx {
                       "[ERROR][SparseUniTensor][at] locator @index: %d out of range.\n", i);
     }
 
-    // 2. calculate the location in real memory using meta datas.
+    // 2. calculate the location in real memory using metadata.
     std::vector<cytnx_uint64> ij =
       _locator_to_inner_ij(locator, this->shape(), this->_inner_rowrank, this->_inv_mapper);
     cytnx_uint64 &i = ij[0];
@@ -1552,7 +1552,7 @@ namespace cytnx {
                       "[ERROR][SparseUniTensor][at] locator @index: %d out of range.\n", i);
     }
 
-    // 2. calculate the location in real memory using meta datas.
+    // 2. calculate the location in real memory using metadata.
     std::vector<cytnx_uint64> ij =
       _locator_to_inner_ij(locator, this->shape(), this->_inner_rowrank, this->_inv_mapper);
     cytnx_uint64 &i = ij[0];
@@ -1585,7 +1585,7 @@ namespace cytnx {
                       "[ERROR][SparseUniTensor][at] locator @index: %d out of range.\n", i);
     }
 
-    // 2. calculate the location in real memory using meta datas.
+    // 2. calculate the location in real memory using metadata.
     std::vector<cytnx_uint64> ij =
       _locator_to_inner_ij(locator, this->shape(), this->_inner_rowrank, this->_inv_mapper);
     cytnx_uint64 &i = ij[0];
@@ -1617,7 +1617,7 @@ namespace cytnx {
                       "[ERROR][SparseUniTensor][at] locator @index: %d out of range.\n", i);
     }
 
-    // 2. calculate the location in real memory using meta datas.
+    // 2. calculate the location in real memory using metadata.
     std::vector<cytnx_uint64> ij =
       _locator_to_inner_ij(locator, this->shape(), this->_inner_rowrank, this->_inv_mapper);
     cytnx_uint64 &i = ij[0];
@@ -1650,7 +1650,7 @@ namespace cytnx {
                       i);
     }
 
-    // 2. calculate the location in real memory using meta datas.
+    // 2. calculate the location in real memory using metadata.
     std::vector<cytnx_uint64> ij =
       _locator_to_inner_ij(locator, this->shape(), this->_inner_rowrank, this->_inv_mapper);
     cytnx_uint64 &i = ij[0];

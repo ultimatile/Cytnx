@@ -366,7 +366,7 @@ IF(BUILD_PYTHON)
   )
 
   message(STATUS " Build Python Wrapper: YES")
-  message(STATUS "  - Python Excutable  : ${PYTHON_EXECUTABLE}")
+  message(STATUS "  - Python Executable  : ${PYTHON_EXECUTABLE}")
   message(STATUS "  - Python Headers    : ${PYTHON_INCLUDE_DIR}")
   message(STATUS "  - Python Library    : ${PYTHON_LIBRARY}")
 
@@ -479,7 +479,7 @@ endif()
 # #####################################################################
 # Final Information Messages
 # #####################################################################
-message(STATUS "|= Final FLAGS infomation for install >>>>> ")
+message(STATUS "|= Final FLAGS information for install >>>>> ")
 message(STATUS "    CXX Compiler: ${CMAKE_CXX_COMPILER}")
 message(STATUS "    CXX Flags: ${CMAKE_CXX_FLAGS}")
 message(STATUS "    BLAS and LAPACK Libraries: ${LAPACK_LIBRARIES}")

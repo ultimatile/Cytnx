@@ -52,7 +52,7 @@ namespace cytnx {
       // check symmetry and type:
       cytnx_error_msg(
         bonds[i].Nsym() != N_symmetry,
-        "[ERROR][BlockFermionicUniTensor] inconsistant # of symmetry at bond: %d. # of "
+        "[ERROR][BlockFermionicUniTensor] inconsistent # of symmetry at bond: %d. # of "
         "symmetry should be %d\n",
         i, N_symmetry);
       for (cytnx_uint32 n = 0; n < N_symmetry; n++) {
@@ -601,7 +601,7 @@ namespace cytnx {
   boost::intrusive_ptr<UniTensor_base> BlockFermionicUniTensor::permute(
     const std::vector<cytnx_int64> &mapper, const cytnx_int64 &rowrank) {
     //[21 Aug 2024] This is a copy from BlockUniTensor; additionally, _swapsigns_ is called to
-    // update the sign struture
+    // update the sign structure
     BlockFermionicUniTensor *out_raw = this->clone_meta(true, true);
     out_raw->_blocks.resize(this->_blocks.size());
 
@@ -649,7 +649,7 @@ namespace cytnx {
   boost::intrusive_ptr<UniTensor_base> BlockFermionicUniTensor::permute(
     const std::vector<std::string> &mapper, const cytnx_int64 &rowrank) {
     //[21 Aug 2024] This is a copy from BlockUniTensor; calls permute(std::vector<cytnx_int64>)
-    // which takes care of the fermionic sign struture
+    // which takes care of the fermionic sign structure
     BlockFermionicUniTensor *out_raw = this->clone_meta(true, true);
     out_raw->_blocks.resize(this->_blocks.size());
 
@@ -669,7 +669,7 @@ namespace cytnx {
   void BlockFermionicUniTensor::permute_(const std::vector<cytnx_int64> &mapper,
                                          const cytnx_int64 &rowrank) {
     //[21 Aug 2024] This is a copy from BlockUniTensor; additionally, _swapsigns_ is called to
-    // update the sign struture
+    // update the sign structure
     std::vector<cytnx_uint64> mapper_u64 = std::vector<cytnx_uint64>(mapper.begin(), mapper.end());
     // checking:
     for (int i = 0; i < mapper_u64.size(); i++) {
@@ -710,7 +710,7 @@ namespace cytnx {
   void BlockFermionicUniTensor::permute_(const std::vector<std::string> &mapper,
                                          const cytnx_int64 &rowrank) {
     //[21 Aug 2024] This is a copy from BlockUniTensor; calls permute_(std::vector<cytnx_int64>)
-    // which takes care of the fermionic sign struture
+    // which takes care of the fermionic sign structure
     std::vector<cytnx_int64> mapper_i64;
     // cytnx_error_msg(true,"[Developing!]%s","\n");
     std::vector<std::string>::iterator it;
@@ -1450,7 +1450,7 @@ namespace cytnx {
         // output instance;
         DenseUniTensor *tmp = new DenseUniTensor();
 
-        // sign flip for this tensor is computed explictly, then a permutation without signflip is
+        // sign flip for this tensor is computed explicitly, then a permutation without signflip is
         // performed; sign flip of rhs is accounted for in usual permutation
         // std::cout << "[DEBUG] Contract; signs of lhs before lhssigns: " << this->_signflip
         // << std::endl;
@@ -1765,7 +1765,7 @@ namespace cytnx {
               // TODOfermions: alphas need to include sign factors!
               cytnx_error_msg(true,
                               "[ERROR] Fermionic sign flips not implemented yet in Gemm_Batch "
-                              "contracition. One needs to change the signs of the alphas.%s",
+                              "contraction. One needs to change the signs of the alphas.%s",
                               "\n")
                 linalg::__Gemm_Batch(transs, transs, ms, ns, ks, alphas,
                                      (const void **)LMems.data(), (const void **)RMems.data(),
@@ -2877,7 +2877,7 @@ namespace cytnx {
       _bkf_from_bkf(this, (BlockFermionicUniTensor *)(rhs.get()), force);
     } else {
       cytnx_error_msg(
-        true, "[ERROR] unsupport conversion of UniTensor from %s => BlockFermionicUniTensor\n",
+        true, "[ERROR] unsupported conversion of UniTensor from %s => BlockFermionicUniTensor\n",
         UTenType.getname(rhs->uten_type()).c_str());
     }
   }

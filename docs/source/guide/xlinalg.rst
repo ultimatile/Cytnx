@@ -9,7 +9,7 @@ Tensor decomposition
 
 
 
-As mention in the **Manipulate UniTensor**, the specification of **rowrank** makes it convinient to apply linear algebra operations on UniTensors.
+As mention in the **Manipulate UniTensor**, the specification of **rowrank** makes it convenient to apply linear algebra operations on UniTensors.
 
 
 Singular value decomposition
@@ -61,7 +61,7 @@ Output >>
 .. literalinclude:: ../../code/python/outputs/guide_xlinalg_Svd_truncate.out
     :language: text
 
-We note that the singular values obtained by doing **Svd_truncate()** is truncated according to our **err** requirment, a **keepdim** argument is also passed to specify a maximum desired dimension. Finally we note that by setting **return_err = 1** we can get the largest truncated singular values, it is also possible to obtain all truncated value by passing any int \>1.
+We note that the singular values obtained by doing **Svd_truncate()** is truncated according to our **err** requirement, a **keepdim** argument is also passed to specify a maximum desired dimension. Finally we note that by setting **return_err = 1** we can get the largest truncated singular values, it is also possible to obtain all truncated value by passing any int \>1.
 
 
 .. Note::

@@ -47,7 +47,7 @@ namespace cytnx {
 
     // Tensor tools
 
-    // given the tensor T with shape and dtype has been initialzed, set its data as random uniform.
+    // given the tensor T with shape and dtype has been initialized, set its data as random uniform.
     void InitTensorUniform(Tensor& T, unsigned int rand_seed = 0);
     void InitTensorUniform(std::vector<Tensor>& T, unsigned int rand_seed = 0);
 

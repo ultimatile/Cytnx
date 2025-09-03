@@ -64,7 +64,7 @@ namespace cytnx {
                     "\n");
     cytnx_error_msg((line.find_first_of("(),") == string::npos),
                     "[ERROR][Gncon][Fromfile] line:%d invalid ORDER line format.%s", line_num,
-                    " tensors should be seperate by delimiter \',\' (comma), and/or wrapped with "
+                    " tensors should be separated by delimiter \',\' (comma), and/or wrapped with "
                     "\'(\' and \')\'");
 
     // check mismatch:
@@ -172,7 +172,7 @@ namespace cytnx {
     //                 "\n");
 
     // if (contract_order.length()) {
-    //   // checing if alias is set!
+    //   // checking if alias is set!
     //   cytnx_error_msg(alias.size() == 0,
     //                   "[ERRPR] conraction_order need to be specify using alias name, so alias
     //                   name " "have to be assigned!%s",
@@ -368,7 +368,7 @@ namespace cytnx {
 
     }  // end for i loop
 
-    // cytnx_error_msg(lnum>=MAXLINES,"[ERROR][Gncon][Fromfile] Gncon file exceed the maxinum
+    // cytnx_error_msg(lnum>=MAXLINES,"[ERROR][Gncon][Fromfile] Gncon file exceed the maximum
     // allowed lines, MAXLINES=1024%s","\n");
 
     cytnx_error_msg(
@@ -435,7 +435,7 @@ namespace cytnx {
 
     cytnx_error_msg(
       !iseof,
-      "[ERROR][Gncon][Fromfile] Gncon file exceed the maxinum allowed lines, MAXLINES=1024%s",
+      "[ERROR][Gncon][Fromfile] Gncon file exceed the maximum allowed lines, MAXLINES=1024%s",
       "\n");
 
     this->FromString(contents);
@@ -694,7 +694,7 @@ namespace cytnx {
 
       root = stk.top();
       stk.pop();
-      // cytnx_error_msg(stk.size()==0,"[eRROR]","\n");
+      // cytnx_error_msg(stk.size()==0,"[ERROR]","\n");
       ict = true;
       if ((root->right != nullptr) && !stk.empty()) {
         if (stk.top() == root->right) {
@@ -744,7 +744,7 @@ namespace cytnx {
     //     this->tensors[i].set_labels(old_labels[i]);
     // }
 
-    // 6. permute accroding to pre-set labels:
+    // 6. permute according to pre-set labels:
     if (TOUT_labels.size()) {
       out.permute_(TOUT_labels, TOUT_iBondNum);
     }

@@ -164,7 +164,7 @@ namespace Lanczos_Exp_Ut_Test {
     vt.set_labels({"b", "j"});
     HEff_mat = Contract(Contract(e, v), vt).get_block();
 
-    // HEff_mat = linalg::Matmul(HEff_mat, HEff_mat.permute({1, 0}).Conj());  // positive definete
+    // HEff_mat = linalg::Matmul(HEff_mat, HEff_mat.permute({1, 0}).Conj());  // positive definite
     HEff_mat.reshape_(HEff_shape);
     HEff.put_block(HEff_mat);
     return HEff;

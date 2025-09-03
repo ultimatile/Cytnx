@@ -41,7 +41,7 @@ def dmrg_XXmodel_U1(Nsites, chi, numsweeps, maxit):
         return psivec, energy[0].item()
 
 
-    ## Initialiaze MPO
+    ## Initialize MPO
     ##>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
     d = 2
     s = 0.5
@@ -85,7 +85,7 @@ def dmrg_XXmodel_U1(Nsites, chi, numsweeps, maxit):
     A[0].get_block_()[0] = 1
 
     lbls = []
-    lbls.append(["0","1","2"]) # store the labels for later convinience.
+    lbls.append(["0","1","2"]) # store the labels for later convenience.
     for k in range(1,Nsites):
         B1 = A[k-1].bonds()[2].redirect(); B2 = A[k-1].bonds()[1];
         if qcntr <= q:
@@ -101,7 +101,7 @@ def dmrg_XXmodel_U1(Nsites, chi, numsweeps, maxit):
         A[k].set_labels(lbl)
 
         A[k].get_block_()[0] = 1
-        lbls.append(lbl) # store the labels for later convinience.
+        lbls.append(lbl) # store the labels for later convenience.
 
     LR = [None for i in range(Nsites+1)]
     LR[0]  = L0

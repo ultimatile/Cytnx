@@ -96,7 +96,7 @@ void storage_binding(py::module &m) {
       "astype_different_type",
       [](cytnx::Storage &self, const cytnx_uint64 &new_type) {
         cytnx_error_msg(self.dtype() == new_type,
-                        "[ERROR][pybind][astype_diffferent_type] same type for astype() should be "
+                        "[ERROR][pybind][astype_different_type] same type for astype() should be "
                         "handle in python side.%s",
                         "\n");
         return self.astype(new_type);
@@ -180,7 +180,7 @@ void storage_binding(py::module &m) {
       "to_different_device",
       [](cytnx::Storage &self, const cytnx_int64 &device) {
         cytnx_error_msg(self.device() == device,
-                        "[ERROR][pybind][to_diffferent_device] same device for to() should be "
+                        "[ERROR][pybind][to_different_device] same device for to() should be "
                         "handle in python side.%s",
                         "\n");
         return self.to(device);

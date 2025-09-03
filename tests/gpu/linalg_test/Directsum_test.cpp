@@ -20,8 +20,8 @@ namespace DirectsumTest {
   /*=====test info=====
   describe:Test all possible data type and check the results.
   input:
-    T1:Tensor with shape {12, 5, 7} and test for all possilbe data type.
-    T2:Tensor with shape {12, 5, 8} and test for all possilbe data type.
+    T1:Tensor with shape {12, 5, 7} and test for all possible data type.
+    T2:Tensor with shape {12, 5, 8} and test for all possible data type.
     axes:{1}
   ====================*/
   TEST(Directsum, gpu_allDType) {
@@ -273,13 +273,13 @@ namespace DirectsumTest {
   }
 
   /*=====test info=====
-  describe:Test the shared axes not uniqe.
+  describe:Test the shared axes not unique.
   input:
     T1:double type tensor with shape {2, 3, 3} on gpu.
     T2:double type tensor with shape {2, 1, 3} on gpu.
     axes:{0, 0}
   ====================*/
-  TEST(Directsum, gpu_err_shared_axis_not_uniqe) {
+  TEST(Directsum, gpu_err_shared_axis_not_unique) {
     Tensor T1 = Tensor({2, 3, 3}).to(cytnx::Device.cuda);
     Tensor T2 = Tensor({2, 1, 3}).to(cytnx::Device.cuda);
     InitTensorUniform(T1, rand_seed1 = 0);

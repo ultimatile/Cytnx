@@ -1,7 +1,7 @@
 Common usage
 =================================
 
-Here, we provides some commonly encounter usage of cytnx objects/fucntions
+Here, we provides some commonly encounter usage of cytnx objects/functions
 
 .. toctree::
     :maxdepth: 3

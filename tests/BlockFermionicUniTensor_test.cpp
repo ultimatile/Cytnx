@@ -10,7 +10,7 @@ TEST_F(BlockFermionicUniTensorTest, SimpleTensorContract) {
   EXPECT_EQ(abs(BFUT3.contract(BFUT2).at({0, 0}) - 32) < 1e-13, true);
 }
 
-TEST_F(BlockFermionicUniTensorTest, LinAlogElementwise) {
+TEST_F(BlockFermionicUniTensorTest, LinAlgElementwise) {
   const double tol = 1e-14;
   UniTensor T = BFUT3.permute({3, 1, 4, 2, 0}).contiguous();
   EXPECT_EQ(AreEqUniTensor(BFUT3PERM, T), true);

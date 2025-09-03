@@ -211,7 +211,7 @@ TEST(Arnoldi, k_large) {
   ExcuteTest(which, mat_type, k, dim);
 }
 
-// 1-9, test the smallest matrix dimenstion.
+// 1-9, test the smallest matrix dimension.
 TEST(Arnoldi, smallest_dim) {
   std::string which = "LM";
   auto mat_type = Type.ComplexDouble;
@@ -280,7 +280,7 @@ TEST(Arnoldi, err_crit_negative) {
   err_task.ExcuteErrorTest();
 }
 
-// 2-6, test ncv is out of allowd range
+// 2-6, test ncv is out of allowed range
 TEST(Arnoldi, err_ncv_out_of_range) {
   ErrorTestClass err_task;
   err_task.ncv = err_task.k + 1;

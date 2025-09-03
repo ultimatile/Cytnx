@@ -55,7 +55,7 @@ class Overload_methods:
 
         ## check if signature already exist:
         if in_sig in self.reged_sigs:
-            raise ValueError(f"funciton signature already exists!")
+            raise ValueError(f"function signature already exists!")
 
         self.reged_sigs[in_sig] = func
 

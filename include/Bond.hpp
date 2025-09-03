@@ -192,7 +192,7 @@ namespace cytnx {
      * @details This function will call \ref
  *  Init(const cytnx_uint64 &dim, const bondType &bd_type)
      *  	 "Init" to do initialization.
-     * @param[in] dim the dimenstion of the Bond
+     * @param[in] dim the dimension of the Bond
      * @param[in] bd_type the type (see \ref bondType) of the bond
 
  *
@@ -315,7 +315,7 @@ namespace cytnx {
             physical tagged and cannot be bondType.BD_REG (regular bond).
     @param[in] in_qnums the quantum number(s) of the bond. it should be a 2d vector with
             shape (# of unique qnum labels, # of symmetry).
-    @param[in] degs the degeneracy correspond to each qunatum number sets specified
+    @param[in] degs the degeneracy correspond to each quantum number sets specified
             in the qnums, the size should match the # of rows of passed-in qnums.
     @param[in] in_syms a vector of symmetry objects of the bond, the size should
             match the # of cols of passed-in qnums. [Note] if qnums are provided, the
@@ -724,7 +724,7 @@ namespace cytnx {
 
         @note
         if the bond has no symmetries, return 0.
-        if the degeneracy queried does not exist, return 0, and the indicies is empty
+        if the degeneracy queried does not exist, return 0, and the index is empty
         @see
          getDegeneracy(const std::vector<cytnx_int64> &qnum,
                        std::vector<cytnx_uint64> &indices) const.
@@ -743,7 +743,7 @@ namespace cytnx {
 
         @note
         If the bond has no symmetries, return 0.
-        If the degeneracy queried does not exist, return 0, and the indicies is empty.
+        If the degeneracy queried does not exist, return 0, and the index is empty.
         @see
          getDegeneracy(const std::vector<cytnx_int64> &qnum) const.
     */
@@ -799,7 +799,7 @@ namespace cytnx {
 
     /**
     @brief Group the duplicated quantum number and return the new instance
-            of the Bond ojbect.
+            of the Bond object.
         @details This function will group the duplicated quantum number and return
             the new instance of the Bond object. It will also the \p mapper, where
                 \p mapper is about the new index from old index via\n
@@ -826,7 +826,7 @@ namespace cytnx {
     /**
     @brief Check whether there is duplicated quantum numbers in the Bond.
         @details This function will check whether there is any duplicated quantum number
-            is the Bond. If yes, return ture. Otherwise, return false.
+            is the Bond. If yes, return true. Otherwise, return false.
         @note For the regular bond (bondType.BD_REG), it will always return false.
         @see
             group_duplicates_(std::vector<cytnx_uint64> &mapper)
@@ -837,7 +837,7 @@ namespace cytnx {
 
     /**
     @brief Calculate the reverse of the quantum numbers.
-        @details This function will calculate the reverse of the qunatum numbers by the
+        @details This function will calculate the reverse of the quantum numbers by the
             reverse rule of the Symmetry. See Symmetry.reverse_rule().
         @note You may use this function if the Bra-Ket mismatch.
         @see Symmetry.reverse_rule()

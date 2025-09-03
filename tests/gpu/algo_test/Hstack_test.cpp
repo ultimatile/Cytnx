@@ -45,7 +45,7 @@ namespace HstackTest {
   }
 
   /*=====test info=====
-  describe:Test arbitray two data type.
+  describe:Test arbitrary two data type.
   input:Three tensor on cpu device with the shapes [(4, 3), (4, 2)] but the data type may be
   different. Test all possible data type with arbitrary combination.
   ====================*/

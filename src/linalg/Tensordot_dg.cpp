@@ -34,7 +34,7 @@ namespace cytnx {
         cytnx_error_msg(Tl.shape().size() != 1,
                         "[ERROR] diag_L=true requires Tl to be rank-1 tensor.%s", "\n");
         if (idxl.size() != 1) {
-          // this is weighted trace, juse expand diag into full dense and then call Tensordot.
+          // this is weighted trace, just expand diag into full dense and then call Tensordot.
           return Tensordot(Diag(Tl), Tr, {0, 1}, idxr);
         }
         non_contract_l = vec_erase(vec_range(2), idxl);
@@ -47,7 +47,7 @@ namespace cytnx {
         cytnx_error_msg(Tr.shape().size() != 1,
                         "[ERROR] diag_L=false requires Tr to be rank-1 tensor.%s", "\n");
         if (idxr.size() != 1) {
-          // this is weighted trace, juse expand diag into full dense and then call Tensordot.
+          // this is weighted trace, just expand diag into full dense and then call Tensordot.
           return Tensordot(Tl, Diag(Tr), idxl, {0, 1});
         }
 

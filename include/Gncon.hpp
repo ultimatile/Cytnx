@@ -60,7 +60,7 @@ namespace cytnx {
     friend class FermionGncon;
     friend class RegularGncon;
     friend class Gncon;
-    Gncon_base() : nwrktype_id(GNType.Void){};
+    Gncon_base() : nwrktype_id(GNType.Void) {};
 
     bool HasPutAllUniTensor() {
       for (cytnx_uint64 i = 0; i < this->tensors.size(); i++) {
@@ -96,7 +96,7 @@ namespace cytnx {
     virtual void PrintNet(std::ostream &os);
     virtual boost::intrusive_ptr<Gncon_base> clone();
     virtual void Savefile(const std::string &fname);
-    virtual ~Gncon_base(){};
+    virtual ~Gncon_base() {};
 
   };  // Gncon_base
 
@@ -139,7 +139,7 @@ namespace cytnx {
     }
     void PrintNet(std::ostream &os);
     void Savefile(const std::string &fname);
-    ~RegularGncon(){};
+    ~RegularGncon() {};
   };
 
   // Under dev!!
@@ -149,15 +149,15 @@ namespace cytnx {
 
    public:
     FermionGncon() { this->nwrktype_id = GNType.Fermion; };
-    void Fromfile(const std::string &fname){};
-    void FromString(const std::vector<std::string> &contents){};
-    void PutUniTensor(const std::string &name, const UniTensor &utensor){};
-    void PutUniTensor(const cytnx_uint64 &idx, const UniTensor &utensor){};
+    void Fromfile(const std::string &fname) {};
+    void FromString(const std::vector<std::string> &contents) {};
+    void PutUniTensor(const std::string &name, const UniTensor &utensor) {};
+    void PutUniTensor(const cytnx_uint64 &idx, const UniTensor &utensor) {};
     void PutUniTensors(const std::vector<std::string> &name,
-                       const std::vector<UniTensor> &utensors){};
+                       const std::vector<UniTensor> &utensors) {};
     void Contract_plan(const std::vector<UniTensor> &utensors, const std::string &Tout,
                        const std::vector<std::string> &alias = {},
-                       const std::string &contract_order = ""){};
+                       const std::string &contract_order = "") {};
     void clear() {
       this->name2pos.clear();
       this->CtTree.clear();
@@ -182,9 +182,9 @@ namespace cytnx {
       boost::intrusive_ptr<Gncon_base> out(tmp);
       return out;
     }
-    void PrintNet(std::ostream &os){};
-    void Savefile(const std::string &fname){};
-    ~FermionGncon(){};
+    void PrintNet(std::ostream &os) {};
+    void Savefile(const std::string &fname) {};
+    ~FermionGncon() {};
   };
 
   ///@endcond
@@ -199,7 +199,7 @@ namespace cytnx {
    public:
     ///@cond
     boost::intrusive_ptr<Gncon_base> _impl;
-    Gncon() : _impl(new Gncon_base()){};
+    Gncon() : _impl(new Gncon_base()) {};
     Gncon(const Gncon &rhs) { this->_impl = rhs._impl; }
     Gncon &operator=(const Gncon &rhs) {
       this->_impl = rhs._impl;
@@ -229,8 +229,8 @@ namespace cytnx {
 
         About [Labels]:
 
-        - each label should seperate by a comma ","
-        - one ';' is needed and used to seperate Rowrank and column rank
+        - each label should be separated by a comma ","
+        - one ';' is needed and used to separate Rowrank and column rank
 
         About [ORDER]:
 

@@ -226,7 +226,7 @@ namespace cytnx {
     // T_ten: Tensor or UniTensor
     // T: cytnx_complex128 or cytnx_complex64
     // T2: cytnx_double or cytnx_float. If T is cytnx_complex128, it should be
-    //     cytnx_double, otherwide, should be cytnx_float
+    //     cytnx_double, otherwise, should be cytnx_float
     template <typename T, typename T2, typename T_ten>
     void _Arnoldi_internal_complex(std::vector<T_ten>& out, LinOp* Hop, const T_ten& UT_init,
                                    const std::string which_str, const cytnx_uint64& maxiter,
@@ -524,7 +524,7 @@ namespace cytnx {
       T* di_ptr = dr;
       T* zr_ptr = z;
 
-      // note that the lenght of dr* and di* is k + 1, need to consider all elem to sort the index.
+      // note that the length of dr* and di* is k + 1, need to consider all elem to sort the index.
       cytnx_int32 nconv = iparam[4];  // nconv = k or k + 1, depend on how many real eivenvalue
       std::vector<std::complex<T>> d(nconv, T(0));
       for (cytnx_int32 ik = 0; ik < nconv; ++ik) {
@@ -813,7 +813,7 @@ namespace cytnx {
 
       // check Tin should be rank-1:
       if (UT_init.dtype() == Type.Void) {
-        cytnx_error_msg(k < 1, "[ERROR][Arnoldi] The initial UniTensor sould be defined.%s", "\n");
+        cytnx_error_msg(k < 1, "[ERROR][Arnoldi] The initial UniTensor should be defined.%s", "\n");
       } else {
         auto dim = get_elem_num(UT_init);
         cytnx_error_msg(dim != Hop->nx(),

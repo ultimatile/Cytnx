@@ -1,7 +1,7 @@
 Common APIs
 =============
 
-The central objects that store data in Cytnx such as **Storage**, **Tensor** and **UniTensor** share very similar member functions and attributes, in this seciton we summerize these APIs and the hyperlink to the correspnding guide page for convenience.
+The central objects that store data in Cytnx such as **Storage**, **Tensor** and **UniTensor** share very similar member functions and attributes, in this section we summerize these APIs and the hyperlink to the corresponding guide page for convenience.
 
 
 Data type
@@ -52,7 +52,7 @@ Device
 
 .. py:function:: .to_(device)
 
-    move a new Storage, Tensor or UniTensor with same content as current object on different deivce.
+    move a new Storage, Tensor or UniTensor with same content as current object on different device.
 
 See:
     :ref:`Creating a Storage`

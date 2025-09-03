@@ -2,9 +2,9 @@ iDMRG
 ------------
 **By : Hsu Ke, Kai-Hsin Wu**
 
-In the previous example we demostrated how the finite size DMRG is implemented,
+In the previous example we demonstrated how the finite size DMRG is implemented,
 Here we present the infinite system size DMRG (iDMRG) scheme which consider the system with *infinite boundary condition*:cite:`ibdry`,
-where the bondaries (enviroments) are grows the lattice by one or more sites each iteration,
+where the bondaries (environments) are grows the lattice by one or more sites each iteration,
 at the fixed point, a translationally invariant wavefunction is produced.
 
 In another algorithm of infinite size simulation, iTEBD, a properly converged state requires careful scaling of the time-step to zero,
@@ -20,7 +20,7 @@ Here, we use a 1D transverse field Ising model (TFIM) as a simple example to sho
 where :math:`\sigma^{x,z}` are the pauli matrices.
 The infinite size ground state can be represent by MPS as variational ansatz, refer to the previous examples.
 
-The MPO is constucted as following:
+The MPO is constructed as following:
 
 .. math::
 
@@ -40,7 +40,7 @@ with the left and right boundary:
 Initialization
 *************************
 
-The initailzation of MPO is much the same as we did in the previous DMRG example:
+The initialization of MPO is much the same as we did in the previous DMRG example:
 
 * In Python:
 
@@ -138,7 +138,7 @@ Now do the optimization and SVD task:
 
     we are using a unit cell of two sites, however the unit cell can be any size, including a single site.
 
-we performed SVD and use the left and right basis to update the environment for effective hamitonian, these procedure and network will always be the same in the future interations
+we performed SVD and use the left and right basis to update the environment for effective hamitonian, these procedure and network will always be the same in the future iterations
 
 .. image:: image/idmrg_envupdate.png
     :width: 470
@@ -184,7 +184,7 @@ followed by another environment update:
 .. code-block:: python
     :linenos:
 
-    # absorb A[1], B[1] to left & right enviroment.
+    # absorb A[1], B[1] to left & right environment.
     anet = cytnx.Network("L_AMAH.net")
     anet.PutUniTensors(["L","A","A_Conj","M"],[L,A,A.Conj(),M]);
     L = anet.Launch()
@@ -287,7 +287,7 @@ then we check the convergence by comparing the singular values to the one we obt
         print("[converge!!]")
         break;
 
-also rememeber to update the environment using the SVD result.
+also remember to update the environment using the SVD result.
 
 * In Python:
 

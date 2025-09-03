@@ -39,7 +39,7 @@ endif()
 
 
 #if(UNI_GPU)
-#    target_sourse_local(cytnx
+#    target_source_local(cytnx
 #        PRIVATE
 #            Device.cu
 #    )

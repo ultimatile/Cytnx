@@ -216,7 +216,7 @@ namespace cytnx {
       if (dtype == Type.Void) return;
       cytnx_double l_bd, h_bd;
       GetRandRange(dtype, &l_bd, &h_bd);
-      //  if 'astype' implement cast from comlex to double, we can just cast from complex to
+      //  if 'astype' implement cast from complex to double, we can just cast from complex to
       //  another.
       auto tmp_type = (dtype == Type.ComplexDouble || dtype == Type.ComplexFloat)
                         ? Type.ComplexDouble
@@ -524,7 +524,7 @@ namespace cytnx {
       if (dtype == Type.Void) return;
       cytnx_double l_bd, h_bd;
       GetRandRange(dtype, &l_bd, &h_bd);
-      //  if 'astype' implement cast from comlex to double, we can just cast from complex to
+      //  if 'astype' implement cast from complex to double, we can just cast from complex to
       //  another.
       auto tmp_type = (dtype == Type.ComplexDouble || dtype == Type.ComplexFloat)
                         ? Type.ComplexDouble

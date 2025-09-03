@@ -357,7 +357,7 @@ TEST(Lanczos_Ut, nx_not_match) {
   }
 }
 
-// 2-8, test ncv is out of allowd range
+// 2-8, test ncv is out of allowed range
 TEST(Lanczos_Ut, err_ncv_out_of_range) {
   ErrorTestClass err_task;
   err_task.ncv = err_task.k + 1;

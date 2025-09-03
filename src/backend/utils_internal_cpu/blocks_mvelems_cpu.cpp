@@ -84,7 +84,7 @@ namespace cytnx {
 
           cytnx_uint64 cur = tfidx.size() - 1;
 
-          // caluclate new row col index:
+          // calculate new row col index:
           cytnx_uint64 new_row = 0, new_col = 0;
           cytnx_uint64 buff = 1;
           for (unsigned int k = 0; k < src_shape.size() - dest_rowrank; k++) {

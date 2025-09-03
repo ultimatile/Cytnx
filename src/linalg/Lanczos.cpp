@@ -125,7 +125,7 @@ namespace cytnx {
                         "\n");
         cytnx_warning_msg(
           max_krydim > 0,
-          "[WARNING][Lanczos] max_krydim > 0 while it is irrelevent when using 'Gnd' method.%s",
+          "[WARNING][Lanczos] max_krydim > 0 while it is irrelevant when using 'Gnd' method.%s",
           "\n");
         return Lanczos_Gnd(Hop, CvgCrit, is_V, Tin, verbose, Maxiter);
         // return Lanczos(Hop, Tin, "SA", Maxiter, CvgCrit, 1, is_V, 0, verbose);
@@ -149,7 +149,7 @@ namespace cytnx {
                         "\n");
         cytnx_warning_msg(
           max_krydim > 0,
-          "[WARNING][Lanczos] max_krydim > 0 while is irrelevent when using 'Gnd' method.%s", "\n");
+          "[WARNING][Lanczos] max_krydim > 0 while is irrelevant when using 'Gnd' method.%s", "\n");
         return Lanczos_Gnd_Ut(Hop, Tin, CvgCrit, is_V, verbose, Maxiter);
         // return Lanczos(Hop, Tin, "SA", Maxiter, CvgCrit, 1, is_V, 0, verbose);
       } else {
@@ -205,7 +205,7 @@ namespace cytnx {
       } else if (metric_type == 'A') {
         for (cytnx_int32 i = 0; i < k; ++i) metric[i] = d[i];
       } else {
-        cytnx_error_msg(true, "[ERROR][Lanczos], Not supprted 'which'.%s", "\n");
+        cytnx_error_msg(true, "[ERROR][Lanczos], Not supported 'which'.%s", "\n");
       }  // never
 
       std::vector<cytnx_int32> indices(k);
@@ -499,8 +499,8 @@ namespace cytnx {
         cytnx_error_msg(true, "[ERROR][Lanczos] 'which' should be 'LM', 'LA', 'SA'", "\n");
       }
 
-      // If the operator is complex hermaitian, just call Arnoldi algorthm since there is no
-      //     specific routine for complex Hermitian operaton in arpack.
+      // If the operator is complex hermaitian, just call Arnoldi algorithm since there is no
+      //     specific routine for complex Hermitian operation in arpack.
       if (Type.is_complex(Hop->dtype())) {
         try {
           std::string tmp_which = which;
@@ -524,7 +524,7 @@ namespace cytnx {
       // check Tin should be rank-1:
       auto _UT_init = UT_init.clone();
       if (UT_init.dtype() == Type.Void) {
-        cytnx_error_msg(k < 1, "[ERROR][Lanczos] The initial UniTensor sould be defined.%s", "\n");
+        cytnx_error_msg(k < 1, "[ERROR][Lanczos] The initial UniTensor should be defined.%s", "\n");
       } else {
         int dim = get_elem_num(UT_init);
         cytnx_error_msg(dim != Hop->nx(),
