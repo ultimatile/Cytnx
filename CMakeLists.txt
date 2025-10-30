@@ -222,6 +222,16 @@ target_include_directories(cytnx SYSTEM
 target_compile_options(cytnx PUBLIC -Wformat=0 -w -fsized-deallocation)
 add_subdirectory(src)
 
+# Set Kron.cpp to compile with CUDA compiler when USE_CUDA is enabled
+# This must be set from the directory where the target is defined (top-level)
+# not from the subdirectory, due to CMake scoping rules
+if(USE_CUDA)
+  set_source_files_properties(
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/linalg/Kron.cpp
+    PROPERTIES LANGUAGE CUDA
+  )
+endif()
+
 if(USE_DEBUG)
   target_compile_definitions(cytnx PUBLIC UNI_DEBUG)
 
