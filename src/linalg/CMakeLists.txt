@@ -4,6 +4,31 @@ if(USE_CUDA)
   set_source_files_properties(Kron.cpp DIRECTORY ${CMAKE_SOURCE_DIR} PROPERTIES LANGUAGE CUDA)
 endif()
 
+# Property propagation test modes (no CUDA toolchain needed)
+if(NOT KRON_PROP_MODE STREQUAL "NONE")
+  message(STATUS "[KRON_PROP_TEST] mode=${KRON_PROP_MODE} (defined in src/linalg/CMakeLists.txt)")
+  target_compile_definitions(cytnx PRIVATE KRON_PROPERTY_TESTING)
+  if(KRON_PROP_MODE STREQUAL "TARGET")
+    message(STATUS "[KRON_PROP_TEST] setting COMPILE_DEFINITIONS on Kron.cpp with TARGET_DIRECTORY cytnx")
+    set_source_files_properties(
+      Kron.cpp
+      TARGET_DIRECTORY cytnx
+      PROPERTIES COMPILE_DEFINITIONS KRON_PROPERTY_MARKER
+    )
+  elseif(KRON_PROP_MODE STREQUAL "ROOT_DIRECTORY")
+    message(STATUS "[KRON_PROP_TEST] setting COMPILE_DEFINITIONS on Kron.cpp with DIRECTORY ${CMAKE_SOURCE_DIR}")
+    # Mimic the old pattern: write properties into the root scope from a subdir
+    # using a subdir-relative path.
+    set_source_files_properties(
+      Kron.cpp
+      DIRECTORY ${CMAKE_SOURCE_DIR}
+      PROPERTIES COMPILE_DEFINITIONS KRON_PROPERTY_MARKER
+    )
+  else()
+    message(FATAL_ERROR "Unknown KRON_PROP_MODE: ${KRON_PROP_MODE}")
+  endif()
+endif()
+
 target_sources_local(cytnx
     PRIVATE
     #linalg_internal_interface.hpp

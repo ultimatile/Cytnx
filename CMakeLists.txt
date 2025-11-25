@@ -172,6 +172,8 @@ option(RUN_BENCHMARKS "Run Cytnx benchmarks." OFF)
 option(USE_DEBUG "Build in debug mode and enable address sanitizer." OFF)
 option(BUILD_DOC "Build API documentation." OFF)
 option(DEV_MODE "Build testing dev_test.cpp with cytnx" OFF)
+set(KRON_PROP_MODE "NONE" CACHE STRING "Kron.cpp property test mode: NONE, TARGET, ROOT_DIRECTORY")
+set_property(CACHE KRON_PROP_MODE PROPERTY STRINGS NONE TARGET ROOT_DIRECTORY)
 
 # #####################################################################
 # ## PROJECT

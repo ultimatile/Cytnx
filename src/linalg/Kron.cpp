@@ -4,6 +4,14 @@
 #include <iostream>
 #include "Tensor.hpp"
 
+#ifdef KRON_PROPERTY_TESTING
+#ifdef KRON_PROPERTY_MARKER
+#error "KRON_PROPERTY_MARKER was defined; stopping as requested for propagation debug"
+#else
+#error "KRON_PROPERTY_MARKER not defined; propagation failed (debug stop)"
+#endif
+#endif
+
 #ifdef BACKEND_TORCH
 #else
 
